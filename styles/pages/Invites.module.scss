@@ -1,0 +1,12 @@
+@import '../variables';
+.container {
+    .post {
+        & > :first-child {
+            background: $linear-red;
+            padding-bottom: 16px;
+            & > :last-child {
+                display: none;
+            }
+        }
+    }
+}

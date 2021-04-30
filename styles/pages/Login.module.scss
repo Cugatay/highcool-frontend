@@ -1,0 +1,38 @@
+@import '../variables';
+
+.container {
+    .inputContainer {
+        position: relative;
+
+        .registerSection {
+            width: 100%;
+            height: 160px;
+            transition: height 0.3s, opacity 0.2s;
+        }
+        .noneSection {
+            height: 0;
+            opacity: 0;
+        }
+
+        .input {
+            width: 80%;
+            height: 60px;
+            margin: 0 auto 20px auto;
+        }
+    }
+
+    .error {
+        width: 80%;
+        display: block;
+        margin: -12px auto 20px auto;
+        color: rgb(255, 29, 29);
+    }
+
+    .button {
+        background-color: $primary;
+        width: 80%;
+        height: 52px;
+        display: block;
+        margin: 0 auto;
+    }
+}

@@ -1,0 +1,70 @@
+@import '../../variables';
+
+.button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 20px;
+    padding: 12px 28px;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    transition: opacity 0.2s, color 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:after {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        margin: 0 auto;
+        display: block;
+        top: 0;
+        left: 0;
+        content: "";
+        transition: background 0.2s;
+    }
+
+    &:disabled {
+        opacity: .6;
+    }
+
+    // &:hover {
+    //     &:after {
+    //         background-color: rgba(255, 255, 255, 0.6);
+    //     }
+    // }
+
+    &:active {
+        &:after {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+    }
+}
+
+.loading {
+    color: transparent;
+    opacity: 1 !important;
+
+    :first-child {
+        visibility: hidden;
+    }
+    
+    &:after {
+        background-color: unset;
+        background-image: url('/icons/loading.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        animation: loading-anim 3s forwards;
+    }
+}
+
+.success {
+    background-color: #388e3c !important;
+}
+
+@keyframes loading-anim {
+    from {transform: rotateZ(0deg);}
+    to {transform: rotateZ(360deg);}
+  }

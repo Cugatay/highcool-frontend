@@ -1,0 +1,36 @@
+@import '../../variables';
+
+.container {
+    width: 100%;
+    margin-bottom: 88px;
+
+    .topBar {
+        position: fixed;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 72px;
+        background-color: $secondary;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        a {
+            font-size: 28px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            font-family: SSP-SemiBold;
+            line-height: normal;
+            letter-spacing: normal;
+            margin-left: 12px;
+        }
+
+        .avatar {
+            margin-right: 12px;
+            font-family: SSP-SemiBold;
+            padding: unset;
+        }
+    }
+}

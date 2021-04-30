@@ -1,0 +1,94 @@
+@import 'variables';
+
+@font-face {
+  font-family: SSP-Regular;
+  src: url('/fonts/SourceSansPro-Regular.ttf');
+}
+@font-face {
+  font-family: SSP-Italic;
+  src: url('/fonts/SourceSansPro-Italic.ttf');
+}
+@font-face {
+  font-family: SSP-ExtraLight;
+  src: url('/fonts/SourceSansPro-ExtraLight.ttf');
+}
+@font-face {
+  font-family: SSP-ExtraLightItalic;
+  src: url('/fonts/SourceSansPro-ExtraLightItalic.ttf');
+}
+@font-face {
+  font-family: SSP-Light;
+  src: url('/fonts/SourceSansPro-Light.ttf');
+}
+@font-face {
+  font-family: SSP-LightItalic;
+  src: url('/fonts/SourceSansPro-LightItalic.ttf');
+}
+@font-face {
+  font-family: SSP-SemiBold;
+  src: url('/fonts/SourceSansPro-SemiBold.ttf');
+}
+@font-face {
+  font-family: SSP-SemiBoldItalic;
+  src: url('/fonts/SourceSansPro-SemiBoldItalic.ttf');
+}
+@font-face {
+  font-family: SSP-Bold;
+  src: url('/fonts/SourceSansPro-Bold.ttf');
+}
+@font-face {
+  font-family: SSP-BoldItalic;
+  src: url('/fonts/SourceSansPro-BoldItalic.ttf');
+}
+@font-face {
+  font-family: SSP-Black;
+  src: url('/fonts/SourceSansPro-Black.ttf');
+}
+@font-face {
+  font-family: SSP-BlackItalic;
+  src: url('/fonts/SourceSansPro-BlackItalic.ttf');
+}
+
+html,
+body {
+  max-width: 100vw;
+  padding: 0;
+  margin: 0;
+  // font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    // Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: SSP-Regular;
+  background-color: $frame;
+  color: white;
+
+  p {
+    margin: 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  @media only screen and (min-width: $desktop-width) {
+    width: $mobile-phone;
+    display: block;
+    margin: 0 auto;
+    border: 1px solid white;
+    min-height: 100vh;
+  }
+
+  .avatar {
+    width: 56px;
+    height: 56px;
+    background-color: $primary;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 26px;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}

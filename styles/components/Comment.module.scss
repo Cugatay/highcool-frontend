@@ -1,0 +1,67 @@
+@import '../variables';
+.container {
+    background-color: $secondary;
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 12px;
+    // max-width: 80%;
+    display: block;
+    margin: 0 auto 12px auto;
+
+    .top {
+        display: flex;
+        margin-bottom: 4px;
+        align-items: center;
+
+        .avatar {
+            width: 42px;
+            height: 42px;
+            font-size: 20px;
+            padding: unset;
+            font-family: SSP-Regular;
+        }
+        
+        .user {
+            margin-left: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            .nameSurname {
+                font-size: 16px;
+                font-family: SSP-SemiBold;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: normal;
+                letter-spacing: normal;
+            }
+
+            .username {
+                font-size: 14px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: normal;
+                letter-spacing: normal;
+                opacity: 0.6;
+            }
+        }
+    }
+
+    .content {
+        font-size: 20px;
+        font-family: SSP-Light;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+    }
+}
+
+.primary {
+    background-color: unset;
+    background: $linear-primary;
+    display: flex;
+    flex-direction: column;
+    // tify-content: right;
+}

@@ -1,0 +1,85 @@
+@import '../variables';
+
+.content {
+    .top {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 32px;
+
+        .avatar {
+            width: 112px;
+            height: 112px;
+            font-size: 48px;
+            font-family: SSP-SemiBold;
+            margin-bottom: 8px;
+        }
+
+        .username {
+            font-size: 18px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            color: rgba(255, 255, 255, 0.7);
+            // margin-bottom: 12px;
+        }
+
+        .nameSurname {
+            font-size: 24px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            margin-bottom: 12px;
+        }
+
+        .button {
+            width: 160px;
+            height: 36px;
+            border-radius: 8px;
+            font-size: 20px;
+            // font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+        }
+
+        .follow {
+            background-color: $primary;
+        }
+        
+        .stop_following {
+            background-color: rgb(208, 191, 34);
+        }
+
+        .exit {
+            background-color: rgb(155, 148, 148);
+        }
+
+        .followersCount {
+            font-size: 16px;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+        }
+    }
+
+    .posts {
+        h2 {
+            font-size: 24px;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            padding: 0 12px 12px 12px;
+            margin: 0 -12px 16px -12px;
+            width: calc(100% + 24px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    }
+}

@@ -1,7 +1,19 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import React, { useEffect } from 'react';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import Cookies from 'js-cookie';
+import styles from '../styles/pages/Landing.module.scss';
+import LandingHeader from '../components/LandingHeader';
 
-export default function Home() {
+export default function Landing() {
+  const router = useRouter();
+  const token = Cookies.get('token');
+
+  useEffect(() => {
+    if (token) {
+      router.push('/home');
+    }
+  }, []);
   return (
     <div className={styles.container}>
       <Head>
@@ -10,56 +22,44 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
+        <LandingHeader />
         <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
+          <div className={styles.card}>
+            <h3>Bu sitede ne yapiliyor?</h3>
             <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
+              Kendini gizle, istediklerini soyle,
+              istedigin kisilere kimligini fisilda. Ve kime guvendigine dikkat et!
             </p>
-          </a>
+          </div>
+
+          <div className={styles.card}>
+            <h3>Tam gizlilik mumkun mu?</h3>
+            <p>
+              Tum gizli bilgiler saatler suren kodlama ve
+              sifrelemelerle gizlendi. Ustelik gizli bir sey
+              paylastigin zaman kimligini kendi sifren ile
+              gizliyorsun, sitenin sahipleri dahil kim oldugunu anlayamiyor
+            </p>
+          </div>
+
+          <div
+            className={styles.card}
+          >
+            <h3>Tam olarak nasil calisiyor?</h3>
+            <p>
+              Oncelikle, hem gizli bir bilgiyi site sahiplerinin
+              gorebilecegi bir sekilde kodlamak yasalara aykiri oldugundan
+              hem de okulda Cagatay Zekeriyaberk diye dalga gecilmesinden
+              korktugumdan dolayi bu verileri gizledigime emin olabilirsin.
+              Fakat mantigini istersen de soyle ki: Kayit oldugunuzda kullandiginiz
+              sifreler dedigim gibi hem yasalardan, hem de verilerinizi tutmayi daha
+              kolay hale getirdiginden dolayi kayit oldugunuz anda sifrelenir. Ve bu sifreyi
+              Highcool gizli bir sey paylasirken bir anahtar olarak kullanir.
+              Ve biri sizle iletisim kurmak istedigi zaman, iletisim kurma istegi
+            </p>
+          </div>
         </div>
       </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
     </div>
-  )
+  );
 }

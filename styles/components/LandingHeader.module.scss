@@ -1,0 +1,40 @@
+@import '../variables';
+
+.container {
+    margin-bottom: 40px;
+    margin-top: 20px;
+
+    h1 {
+        font-size: 52px;
+        font-family: SSP-Bold;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 12px;
+    }
+
+    .buttonsContainer {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .button {
+            width: 140px;
+            height: 48px;
+            background-color: $secondary;
+        }
+
+        button:first-child {
+            margin-right: 10px;
+        }
+
+        .register {
+            background-color: $primary;
+        }
+    }
+}
