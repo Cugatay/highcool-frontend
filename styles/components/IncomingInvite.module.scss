@@ -1,34 +1,76 @@
 @import '../variables';
 
-.container {
-    // width: 100%;
-    padding: 8px 12px 16px 12px;
-    background-color: $secondary;
+.invite {
+    margin-top: 8px;
+    padding: 12px 16px;
+    background: $linear-primary;
     border-radius: 12px;
-    
-    .post {
-        &:first-child {
-            div:first-child {
-                background-color: $frame;
-                max-width: unset;
+
+    .head {
+        display: flex;
+        justify-content: space-between;
+
+        .user {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .avatar {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+                font-stretch: normal;
+                font-style: normal;
+                padding: unset;
+                font-family: SSP-Regular;
+                line-height: normal;
+                letter-spacing: normal;
+                margin-right: 8px;
+            }
+            
+            .nameSurname {
+                font-size: 16px;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: normal;
+                letter-spacing: normal;
+            }
+        }
+
+        .invite {
+            padding: 8px 16px;
+
+            img {
+                width: 24px;
+                height: 24px;
+                filter: $white-filter;
             }
         }
     }
 
-    .invite {
+    .postContent {
+        font-size: 24px;
         margin-top: 8px;
-        padding: 12px 16px;
-        background: $linear-primary;
+    }
+
+    .inviteContent {
+        // margin: 4px;
+        margin-top: 16px;
+        padding: 12px;
+        background-color: rgba(0,0,0,0.6);
+        border: 1px solid white;
         border-radius: 12px;
 
         .top {
+            margin-bottom: 8px;
             display: flex;
             align-items: center;
             justify-content: space-between;
 
             .user {
                 display: flex;
-                justify-content: center;
+                justify-content: space-between;
+                align-items: center;
 
                 .avatar {
                     width: 40px;
@@ -39,59 +81,38 @@
                     padding: unset;
                     font-family: SSP-Regular;
                     line-height: normal;
+                    margin-right: 8px;
                     letter-spacing: normal;
-                    margin-right: 12px;
                     background-color: #c4c4c4;
                 }
-                
-                .info {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    
-                    .nameSurname {
-                        font-size: 16px;
-                        font-stretch: normal;
-                        font-style: normal;
-                        line-height: normal;
-                        letter-spacing: normal;
-                    }
 
-                    .username {
-                        font-size: 14px;
-                        font-weight: normal;
-                        font-stretch: normal;
-                        font-style: normal;
-                        line-height: normal;
-                        letter-spacing: normal;
-                        opacity: 0.6;
-                    }
+                .nameSurname {
+                    font-size: 18px;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: normal;
+                    letter-spacing: normal;
+                    font-family: SSP-SemiBold;
                 }
             }
 
-            .acceptOrDecline {
-                display: flex;
-                // flex-direction: row-reverse;
+        .acceptOrDecline {
+            display: flex;
+            
+            button {
+                padding: unset;
+                width: 40px;
                 
-                button {
-                    padding: unset;
-                    width: 40px;
-
-                    // &:first-child {
-                    //     margin-right: 4px;
-                    // }
-                    
-                    img {
-                        width: 32px;
-                        height: 32px;
-                    }
+                img {
+                    width: 32px;
+                    height: 32px;
                 }
             }
         }
+        }
 
         .content {
-            font-size: 20px;
-            margin-top: 8px;
+            font-size: 18px;
         }
     }
 }
