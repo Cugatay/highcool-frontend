@@ -12,7 +12,7 @@ export default function Comment({ username, nameSurname, content }) {
 
   const pushUserpage = () => {
     if (username) {
-      router.push(`/user/${username}`);
+      router.push(`/user?u=${username}`);
     }
   };
 

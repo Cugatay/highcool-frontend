@@ -60,7 +60,7 @@ export default function Post({
 
   const pushUserpage = () => {
     if (username) {
-      router.push(`/user/${username}`);
+      router.push(`/user?u=${username}`);
     }
   };
 
@@ -171,7 +171,7 @@ export default function Post({
           </Button>
         </div>
 
-        <a href={`/post/${id}`}>
+        <a href={`/post?p=${id}`}>
           <Button className={styles.comments}>
             <img src="/icons/comment.svg" alt="comment" />
             <span>{commentsCount}</span>

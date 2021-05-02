@@ -14,7 +14,7 @@ export default function TopBar() {
       <div className={styles.topBar}>
         <a href="/home">HIGHCOOL</a>
         {user
-        && <Link href={`/user/${user.username}`}><Button className={clsx(styles.avatar, 'avatar')}>{user.username[0].toUpperCase()}</Button></Link>}
+        && <Link href={`/user?u=${user.username}`}><Button className={clsx(styles.avatar, 'avatar')}>{user.username[0].toUpperCase()}</Button></Link>}
       </div>
     </div>
   );
