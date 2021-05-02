@@ -26,7 +26,8 @@ const LEARN_POST_OWNER = gql`
 `;
 
 export default function Post({
-  id, nameSurname, username, /* createdAt, */ content, likesInfo, commentsCount, tagless, // , today,
+  id, nameSurname, username, // createdAt,
+  content, likesInfo, commentsCount, tagless, // , today,
 }) {
   const router = useRouter();
 
@@ -91,7 +92,10 @@ export default function Post({
   };
 
   return (
-    <div className={clsx(styles.post, !tagless && (likesRate > 3 || commentsCount > 10) && styles.tagful)}>
+    <div
+      className={clsx(styles.post,
+        !tagless && (likesRate > 3 || commentsCount > 10) && styles.tagful)}
+    >
       <div className={styles.head}>
         <div className={styles.user}>
           <Button
@@ -113,7 +117,7 @@ export default function Post({
         {/* User must be able to use our app with just one hand.
         And the position of invite button is don't let that. */}
         {
-          !username
+          !username && id
         && (
         <Button
           onClick={() => setIsInviteContentVisible(!isInviteContentVisible)}

@@ -25,7 +25,6 @@ export default function Navbar() {
       Cookies.set('token', '');
     }
   }, [error]);
-  console.log(data?.notificationsCount === 0);
 
   return (
     <div className={styles.container}>

@@ -1,0 +1,69 @@
+@import '../variables';
+
+.post {
+    padding: 12px;
+    border-radius: 12px;
+    background-color: $secondary;
+
+    .head {
+        display: flex;
+        justify-content: space-between;
+
+        .user {
+            display: flex;
+            justify-content: center;
+
+            .avatar {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+                font-stretch: normal;
+                font-style: normal;
+                padding: unset;
+                font-family: SSP-Regular;
+                line-height: normal;
+                letter-spacing: normal;
+                margin-right: 12px;
+                background-color: #c4c4c4;
+            }
+            
+            .info {
+                display: flex;
+                flex-direction: column;
+                
+                .nameSurname {
+                    font-size: 16px;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: normal;
+                    letter-spacing: normal;
+                }
+
+                .username {
+                    font-size: 14px;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: normal;
+                    letter-spacing: normal;
+                    opacity: 0.6;
+                }
+            }
+        }
+    }
+
+    .content {
+        font-family: SSP-SemiBold;
+        font-size: 22px;
+        margin-top: 12px;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+    }
+}
+
+.new {
+    background: $linear-primary;
+}
