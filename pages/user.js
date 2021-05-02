@@ -3,13 +3,13 @@ import { useRouter } from 'next/router';
 import { useQuery, gql } from '@apollo/client';
 import Cookies from 'js-cookie';
 import clsx from 'clsx';
-import Layout from '../../components/layout/DefaultLayout';
-import styles from '../../styles/pages/User.module.scss';
-import Button from '../../components/ui/Button';
-import Post from '../../components/Post';
-import PostSkeleton from '../../components/skeleton/PostSkeleton';
-import UserpageTopSkeleton from '../../components/skeleton/UserpageTopSkeleton';
-import ApolloClient from '../../apollo-client';
+import Layout from '../components/layout/DefaultLayout';
+import styles from '../styles/pages/User.module.scss';
+import Button from '../components/ui/Button';
+import Post from '../components/Post';
+import PostSkeleton from '../components/skeleton/PostSkeleton';
+import UserpageTopSkeleton from '../components/skeleton/UserpageTopSkeleton';
+import ApolloClient from '../apollo-client';
 
 const GET_USERPAGE = gql`
     query User($token: String! $username: String!) {
@@ -44,7 +44,7 @@ const TOGGLE_FOLLOW = gql`
 
 export default function UserPage() {
   const router = useRouter();
-  const { dynamicUsername } = router.query;
+  const { u: dynamicUsername } = router.query;
   const token = Cookies.get('token');
   let user = Cookies.get('user');
   user = user ? JSON.parse(user) : null;

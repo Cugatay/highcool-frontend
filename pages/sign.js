@@ -5,12 +5,12 @@ import { useRouter } from 'next/router';
 import clsx from 'clsx';
 import { gql } from '@apollo/client';
 import Cookies from 'js-cookie';
-import styles from '../../styles/pages/Login.module.scss';
-import LandingHeader from '../../components/LandingHeader';
-import Input from '../../components/ui/Input';
-import Button from '../../components/ui/Button';
-import ApolloClient from '../../apollo-client';
-import UserContext from '../../context/UserContext';
+import styles from '../styles/pages/Login.module.scss';
+import LandingHeader from '../components/LandingHeader';
+import Input from '../components/ui/Input';
+import Button from '../components/ui/Button';
+import ApolloClient from '../apollo-client';
+import UserContext from '../context/UserContext';
 
 const LOGIN_MUTATION = gql`
   mutation Login($usernameOrEmail: String!, $password: String!) {
@@ -39,7 +39,7 @@ export default function Login() {
   const { setUserValue } = useContext(UserContext);
 
   const router = useRouter();
-  const { loggingType } = router.query;
+  const { t: loggingType } = router.query;
 
   const [formError, setFormError] = useState(null);
   const [isRegistering, setIsRegistering] = useState(loggingType === 'up');

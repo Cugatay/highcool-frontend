@@ -31,7 +31,7 @@ export default function LandingHeader({
     <div className={clsx(styles.container, className)}>
       <h1>HIGHCOOL</h1>
       <div className={styles.buttonsContainer}>
-        <Link href="/sign/in">
+        <Link href="/sign?t=in">
           <Button
             onClick={toggleLogin}
             className={clsx(styles.button, isDisabled === 'login' && styles.register)}
@@ -40,7 +40,7 @@ export default function LandingHeader({
           </Button>
         </Link>
 
-        <Link href="/sign/up">
+        <Link href="/sign?t=up">
           <Button
             onClick={toggleRegister}
             className={clsx(styles.button, isDisabled === 'register' && styles.register)}

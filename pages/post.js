@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useQuery, gql } from '@apollo/client';
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
-import Comment from '../../components/Comment';
-import PostSkeleton from '../../components/skeleton/PostSkeleton';
-import Layout from '../../components/layout/PostLayout';
-import Post from '../../components/Post';
-import CommentSkeleton from '../../components/skeleton/CommentSkeleton';
-import styles from '../../styles/pages/Postpage.module.scss';
+import Comment from '../components/Comment';
+import PostSkeleton from '../components/skeleton/PostSkeleton';
+import Layout from '../components/layout/PostLayout';
+import Post from '../components/Post';
+import CommentSkeleton from '../components/skeleton/CommentSkeleton';
+import styles from '../styles/pages/Postpage.module.scss';
 
 const GET_POST = gql`
     query Post($token: String! $post_id: ID!) {
@@ -45,7 +45,7 @@ const GET_POST = gql`
 
 export default function PostPage() {
   const router = useRouter();
-  const { queryPostId } = router.query;
+  const { p: queryPostId } = router.query;
   const token = Cookies.get('token');
   const [render, setRender] = useState(false);
   const [newMessages, setNewMessage] = useState([]);
