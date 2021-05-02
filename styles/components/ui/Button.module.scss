@@ -50,7 +50,7 @@
         background-image: url('/icons/loading.svg');
         background-repeat: no-repeat;
         background-position: center;
-        animation: loading-anim 3s forwards;
+        animation: spin 2s linear infinite;
     }
 }
 
@@ -58,7 +58,11 @@
     background-color: #388e3c !important;
 }
 
-@keyframes loading-anim {
-    from {transform: rotateZ(0deg);}
-    to {transform: rotateZ(360deg);}
-  }
+@keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+}

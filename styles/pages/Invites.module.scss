@@ -14,4 +14,11 @@
         line-height: normal;
         letter-spacing: normal;
     }
+
+    .post {
+        opacity: 0.6;
+        & > :first-child {
+            // background: linear-gradient(to right, rgba(66,66,66, 0.4) 50%, $secondary 100%);
+        }
+    }
 }

@@ -6,6 +6,7 @@ import Layout from '../components/layout/DefaultLayout';
 import Post from '../components/Post';
 import styles from '../styles/pages/Invites.module.scss';
 import AcceptedInvite from '../components/AcceptedInvite';
+import PostSkeleton from '../components/skeleton/PostSkeleton';
 
 const GET_INVITES_PAGE = gql`
 query Invites($token: String!){
@@ -68,7 +69,7 @@ export default function Invites() {
             {data.invites.accepted_new.length
               ? (
                 <div className={styles.newInvites}>
-                  <h2>Yeni Kabul Edilen Postlar</h2>
+                  {/* <h2>Yeni Kabul Edilen Postlar</h2> */}
                   {data.invites.accepted_new.map((acceptedNewInvite) => (
                     <AcceptedInvite
                       newInvite
@@ -83,9 +84,10 @@ export default function Invites() {
             {data.invites.incoming.length
               ? (
                 <div className={styles.incomingInvites}>
-                  <h2>Gelen İstekler</h2>
+                  {/* <h2>Gelen İstekler</h2> */}
                   {data.invites.incoming.map((incomingInvite) => (
                     <IncomingInvite
+                      token={token}
                       id={incomingInvite._id}
                       postContent={incomingInvite.post.content}
                       senderName={incomingInvite.sender.nameSurname}
@@ -98,7 +100,7 @@ export default function Invites() {
             {data.invites.accepted_old.length
               ? (
                 <div className={styles.oldInvites}>
-                  <h2>Kabul Edilmiş Postlar</h2>
+                  {/* <h2>Kabul Edilmiş Postlar</h2> */}
                   {data.invites.accepted_old.map((acceptedOldInvite) => (
                     <AcceptedInvite
                       nameSurname={acceptedOldInvite.receiver.nameSurname}
@@ -112,21 +114,36 @@ export default function Invites() {
             {data.invites.sent.length
               ? (
                 <div className={styles.sentInvites}>
-                  <h2>İstek Atılan Postlar</h2>
+                  {/* <h2>İstek Atılan Postlar</h2> */}
                   {data.invites.sent.map(({ post }) => (
-                    <Post
+                    <div
+                      className={styles.post}
+                    >
+                      <Post
                       // nameSurname={post.user?.nameSurname}
                       // username={post.user?.username}
-                      tagless
-                      content={post.content}
-                      likesInfo={{ likesRate: 15, isLiked: false }}
-                      commentsCount={3}
-                    />
+                        tagless
+                        id={post._id}
+                        content={post.content}
+                        likesInfo={{ likesRate: 15, isLiked: false }}
+                        commentsCount={3}
+                      />
+                    </div>
                   ))}
                 </div>
               ) : null}
           </>
-        ) : <div>Loading...</div>}
+        ) : (
+          <div>
+            <PostSkeleton />
+            <PostSkeleton />
+            <PostSkeleton />
+            <PostSkeleton />
+            <PostSkeleton />
+            <PostSkeleton />
+            <PostSkeleton />
+          </div>
+        )}
 
     </Layout>
   );

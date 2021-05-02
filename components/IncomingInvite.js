@@ -1,14 +1,35 @@
 import clsx from 'clsx';
 import React from 'react';
 import Cookies from 'js-cookie';
+import { gql } from '@apollo/client';
 import styles from '../styles/components/IncomingInvite.module.scss';
 import Button from './ui/Button';
+import ApolloClient from '../apollo-client';
+
+const ACCEPT_OR_DECLINE = gql`
+  mutation AcceptOrDeclineInvite($token: String! $invite_id: ID! $isAccepted: Boolean!){
+    acceptOrDeclineInvite(token: $token invite_id: $invite_id isAccepted: $isAccepted) {
+      message
+    }
+  }
+`;
 
 export default function IncomingInvite({
-  id, postContent, senderName, inviteMessage,
+  id, postContent, senderName, inviteMessage, token,
 }) {
   let user = Cookies.get('user');
   user = user ? JSON.parse(user) : null;
+
+  const handleAcceptOrDecline = async (isAccepted) => {
+    try {
+      const { data } = await ApolloClient.mutate({
+        mutation: ACCEPT_OR_DECLINE, variables: { token, invite_id: id, isAccepted },
+      });
+    } catch (e) {
+      console.error(e.message);
+      alert('Bir şeyler ters gitti');
+    }
+  };
 
   return (
     <div className={styles.invite}>
