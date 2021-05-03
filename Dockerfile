@@ -4,6 +4,7 @@ COPY . .
 RUN yarn
 RUN yarn build
 EXPOSE 3000
+ENV PRODUCTION=true
 CMD ["yarn", "start"]
 
 # FROM nginx:alpine
