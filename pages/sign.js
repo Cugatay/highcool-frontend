@@ -84,6 +84,7 @@ export default function Login() {
       router.push('/home');
     } catch (e) {
       setFormError(e.message);
+      console.error(e);
       setIsLoading(false);
     }
   };
