@@ -6,9 +6,9 @@ import UserContext from '../context/UserContext';
 import PageContext from '../context/PageContext';
 
 const client = new ApolloClient({
-  uri: `http://${process.env.NEXT_PUBLIC_PRODUCTION ? 'backend' : 'localhost'}:5000/graphql`,
+  // uri: `http://${process.env.NEXT_PUBLIC_PRODUCTION ? 'backend' : 'localhost'}:5000/graphql`,
   // uri: tp://127.0.0.1:5000/graphql',
-  // uri: `${process.env.NEXT_PUBLIC_PRODUCTION ? '/graphql' : 'localhost:5000/graphql'}`,
+  uri: `${process.env.NEXT_PUBLIC_PRODUCTION ? '/graphql' : 'localhost:5000/graphql'}`,
   cache: new InMemoryCache(),
 });
 
