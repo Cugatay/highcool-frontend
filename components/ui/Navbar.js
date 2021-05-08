@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import clsx from 'clsx';
 import Link from 'next/link';
@@ -13,10 +13,32 @@ const NOTIFICATIONS_COUNT = gql`
   }
 `;
 
-export default function Navbar() {
+export default function Navbar({ startBelow }) {
   const { pathname, push: routerPush } = useRouter();
   const token = Cookies.get('token');
   const { data, error } = useQuery(NOTIFICATIONS_COUNT, { variables: { token } });
+  let prevScrollPos = 0;
+  const [isAbove, setIsAbove] = useState(!startBelow);
+
+  const handleScroll = () => {
+    const currentScrollPos = window.pageYOffset;
+    const newIsAbove = prevScrollPos < currentScrollPos;
+
+    prevScrollPos = currentScrollPos;
+    setIsAbove(newIsAbove);
+  };
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', handleScroll);
+    }
+
+    return () => {
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('scroll', handleScroll);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     if (error) {
@@ -34,7 +56,7 @@ export default function Navbar() {
         </Button>
       </a>
       <Link href="/createPost">
-        <Button className={styles.addButton}>
+        <Button className={clsx(styles.addButton, !isAbove && styles.below)}>
           <img src="/icons/add.svg" alt="add" />
         </Button>
       </Link>
