@@ -3,6 +3,7 @@
 .container {
     width: 100%;
     margin-bottom: 88px;
+    background-color: red;
 
     .topBar {
         position: fixed;
@@ -15,6 +16,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        transition: top 0.4s;
 
         a {
             font-size: 28px;
@@ -32,5 +34,9 @@
             font-family: SSP-SemiBold;
             padding: unset;
         }
+    }
+
+    .hidden {
+        top: -72px;
     }
 }

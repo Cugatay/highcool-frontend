@@ -59,7 +59,6 @@ query Invites($token: String!){
 export default function Invites() {
   const token = Cookies.get('token');
   const { data } = useQuery(GET_INVITES_PAGE, { variables: { token } });
-  console.log(data);
 
   return (
     <Layout className={styles.container}>

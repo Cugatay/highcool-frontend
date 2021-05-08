@@ -73,7 +73,7 @@ export default function Login() {
       });
 
       Cookies.set('token', data.register?.token || data.login?.token, { expires: 7 });
-      Cookies.set('user', JSON.stringify(data.register?.user) || JSON.stringify(data.login?.user), { expires: 7 });
+      Cookies.set('user', data.register ? JSON.stringify(data.register.user) : JSON.stringify(data.login.user), { expires: 7 });
 
       setUserValue({
         token: data.login?.token || data.register?.token,
@@ -84,7 +84,6 @@ export default function Login() {
       router.push('/home');
     } catch (e) {
       setFormError(e.message);
-      console.error(e);
       setIsLoading(false);
     }
   };

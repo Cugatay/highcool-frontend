@@ -42,7 +42,6 @@ export default function CreatePost() {
 
       router.push(`/post?p=${data.createPost.post_id}`);
     } catch (e) {
-      console.error(e);
       setIsLoading(false);
     }
   };

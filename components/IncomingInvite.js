@@ -26,7 +26,6 @@ export default function IncomingInvite({
         mutation: ACCEPT_OR_DECLINE, variables: { token, invite_id: id, isAccepted },
       });
     } catch (e) {
-      console.error(e.message);
       alert('Bir şeyler ters gitti');
     }
   };

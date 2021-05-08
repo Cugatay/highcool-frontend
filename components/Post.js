@@ -47,6 +47,15 @@ export default function Post({
     likesRate += 1;
   }
 
+  const handleLocate = () => {
+    const location = `/post?p=${id}`;
+
+    if (process.env.NEXT_PUBLIC_PRODUCTION) {
+      window.location = location;
+    } else {
+      router.push(location);
+    }
+  };
   const toggleLike = async (newStatus) => {
     const currentIsLiked = isLiked === newStatus ? null : newStatus;
     setIsLiked(currentIsLiked);
@@ -87,7 +96,6 @@ export default function Post({
       } else {
         alert('Bir şeyler ters gitti');
       }
-      // console.error(e);
     }
   };
 
@@ -171,12 +179,12 @@ export default function Post({
           </Button>
         </div>
 
-        <a href={`/post?p=${id}`}>
-          <Button className={styles.comments}>
-            <img src="/icons/comment.svg" alt="comment" />
-            <span>{commentsCount}</span>
-          </Button>
-        </a>
+        {/* <a href={`/post?p=${id}`}> */}
+        <Button onClick={handleLocate} className={styles.comments}>
+          <img src="/icons/comment.svg" alt="comment" />
+          <span>{commentsCount}</span>
+        </Button>
+        {/* </a> */}
       </div>
       {
         !username
