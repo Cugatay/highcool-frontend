@@ -27,6 +27,7 @@ const GET_POST = gql`
         }
         commentsInfo {
             comments {
+              _id
             user {
                 nameSurname
                 username
@@ -46,11 +47,14 @@ const GET_POST = gql`
 export default function PostPage() {
   const router = useRouter();
   const { p: queryPostId } = router.query;
+
   const token = Cookies.get('token');
-  const [render, setRender] = useState(false);
-  const [newMessages, setNewMessage] = useState([]);
   let user = Cookies.get('user');
   user = user ? JSON.parse(user) : null;
+
+  const [render, setRender] = useState(false);
+  const [newMessages, setNewMessages] = useState([]);
+  const [usersMessages, setUsersMessages] = useState([]);
 
   const scrollToBottom = () => {
     window.scrollTo(0, document.body.scrollHeight);
@@ -90,12 +94,12 @@ export default function PostPage() {
       }
       setRender(true);
 
-      setNewMessage([]);
+      setNewMessages([]);
     }
   }, [data?.post?.commentsInfo]);
 
   return (
-    <Layout hideFirst={data?.post.commentsInfo.comments?.length > 0} className={styles.content} style={{ overflow: 'hidden' }} postId={queryPostId} newMessages={newMessages} setNewMessage={setNewMessage}>
+    <Layout hideFirst={data?.post.commentsInfo.comments?.length > 0} className={styles.content} style={{ overflow: 'hidden' }} postId={queryPostId} newMessages={newMessages} setNewMessages={setNewMessages} usersMessages={usersMessages} setUsersMessages={setUsersMessages}>
       {
           data?.post
             ? (
@@ -111,9 +115,11 @@ export default function PostPage() {
                 {
                   data?.post?.commentsInfo?.comments.map((comment) => (
                     <Comment
+                      id={comment._id}
                       username={comment.user?.username}
                       nameSurname={comment.user?.nameSurname}
                       content={comment.content}
+                      usersMessages={usersMessages}
                     />
                   ))
                 }
@@ -123,13 +129,14 @@ export default function PostPage() {
                 && <p className={styles.noComment}>Henüz Bir Yorum Yok. İlk Yorumu Sen Yap!</p>
                 }
 
-                {newMessages.map((newMessage) => (
+                {newMessages.map((newMessage) => (newMessages?.content ? (
                   <Comment
+                    id={newMessage._id}
                     username={newMessage?.user ? user.username : null}
                     nameSurname={newMessage?.user ? user.nameSurname : null}
                     content={newMessage?.content}
                   />
-                ))}
+                ) : null))}
               </div>
             )
             : (

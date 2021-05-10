@@ -5,7 +5,9 @@ import Cookies from 'js-cookie';
 import styles from '../styles/components/Comment.module.scss';
 import Button from './ui/Button';
 
-export default function Comment({ username, nameSurname, content }) {
+export default function Comment({
+  id, username, nameSurname, content, usersMessages,
+}) {
   const router = useRouter();
   let user = Cookies.get('user');
   user = user ? JSON.parse(user) : null;
@@ -16,8 +18,18 @@ export default function Comment({ username, nameSurname, content }) {
     }
   };
 
+  const isSecretOwner = usersMessages ? usersMessages.find((messageID) => messageID === id) : true;
+
   return (
-    <div className={clsx(styles.container, user?.username === username && styles.primary)}>
+    <div
+      className={
+        clsx(
+          styles.container,
+          (user?.username === username || isSecretOwner) && styles.primary,
+          !id && styles.transparent,
+        )
+      }
+    >
       <div className={styles.top}>
         <Button onClick={pushUserpage} className={clsx('avatar', styles.avatar)}>{nameSurname ? nameSurname[0]?.toUpperCase() : '?'}</Button>
         <div className={styles.user}>

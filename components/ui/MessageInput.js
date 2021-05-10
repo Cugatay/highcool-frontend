@@ -7,7 +7,7 @@ import Button from './Button';
 import ApolloClient from '../../apollo-client';
 
 export default function MessageInput({
-  postId, newMessages, setNewMessage,
+  postId, newMessages, setNewMessages, usersMessages, setUsersMessages,
 }) {
   const [isPrivate, setIsPrivate] = useState(false);
   const [isContained, setIsContained] = useState(false);
@@ -24,12 +24,17 @@ export default function MessageInput({
       mutation CommentPost($token: String! $post_id: ID! $content: String! $isPrivate: Boolean) {
         commentPost(token: $token post_id: $post_id content: $content isPrivate: $isPrivate) {
           message
+          comment_id
         }
       } 
     `;
     const content = messageRef.current.value;
 
-    setNewMessage([...newMessages, { user: !isPrivate, content: messageRef?.current.value }]);
+    setNewMessages([...newMessages, {
+      user: !isPrivate,
+      content: messageRef?.current.value,
+    }]);
+
     messageRef.current.value = null;
     messageRef.current.focus();
     setIsContained(false);
@@ -37,12 +42,20 @@ export default function MessageInput({
       window?.scrollTo(0, document?.body?.scrollHeight);
     }, 100);
 
-    await ApolloClient.mutate({
+    const { data } = await ApolloClient.mutate({
       mutation: COMMENT_POST,
       variables: {
         token, post_id: postId, content, isPrivate,
       },
     });
+    setNewMessages([...newMessages.slice(0, newMessages.length - 1), {
+      _id: data.commentPost.comment_id,
+      user: !isPrivate,
+      content,
+    }]);
+    if (isPrivate) {
+      setUsersMessages([...usersMessages, data.commentPost.comment_id]);
+    }
   };
 
   return (

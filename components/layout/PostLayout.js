@@ -5,13 +5,20 @@ import MessageInput from '../ui/MessageInput';
 import TopBar from '../ui/TopBar';
 
 export default function Layout({
-  children, hideFirst, className, postId, newMessages, setNewMessage, ...props
+  children, hideFirst, className, postId, newMessages, setNewMessages, usersMessages,
+  setUsersMessages, ...props
 }) {
   return (
     <div className={clsx(styles.container, className)} {...props}>
       <TopBar hideFirst={hideFirst} />
       {children}
-      <MessageInput postId={postId} newMessages={newMessages} setNewMessage={setNewMessage} />
+      <MessageInput
+        postId={postId}
+        newMessages={newMessages}
+        setNewMessages={setNewMessages}
+        usersMessages={usersMessages}
+        setUsersMessages={setUsersMessages}
+      />
     </div>
   );
 }
