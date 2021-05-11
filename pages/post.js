@@ -123,11 +123,11 @@ export default function PostPage() {
                 && <p className={styles.noComment}>Henüz Bir Yorum Yok. İlk Yorumu Sen Yap!</p>
                 }
 
-                {newMessages.map((newMessage) => (
+                {newMessages.map((newMessage) => newMessage.content && (
                   <Comment
-                    username={newMessage?.user ? user.username : null}
-                    nameSurname={newMessage?.user ? user.nameSurname : null}
-                    content={newMessage?.content}
+                    username={newMessage.user ? user.username : null}
+                    nameSurname={newMessage.user ? user.nameSurname : null}
+                    content={newMessage.content}
                   />
                 ))}
               </div>
