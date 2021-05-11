@@ -34,7 +34,7 @@ export default function TopBar({ hideFirst }) {
   return (
     <div className={styles.container}>
       <div className={clsx(styles.topBar, !isVisible && styles.hidden)}>
-        <a href="/home">Coarrel</a>
+        <a href="/home">Prisold</a>
         {user
         && <Link href={`/user?u=${user.username}`}><Button className={clsx(styles.avatar, 'avatar')}>{user.username[0].toUpperCase()}</Button></Link>}
       </div>

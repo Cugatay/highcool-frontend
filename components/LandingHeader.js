@@ -29,7 +29,7 @@ export default function LandingHeader({
   };
   return (
     <div className={clsx(styles.container, className)}>
-      <h1>COARREL</h1>
+      <h1>PRISOLD</h1>
       <div className={styles.buttonsContainer}>
         <Link href="/sign?t=in">
           <Button

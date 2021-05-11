@@ -54,7 +54,7 @@ export default function Landing() {
               Fakat mantigini istersen de soyle ki: Kayit oldugunuzda kullandiginiz
               sifreler dedigim gibi hem yasalardan, hem de verilerinizi tutmayi daha
               kolay hale getirdiginden dolayi kayit oldugunuz anda sifrelenir. Ve bu sifreyi
-              Coarrel gizli bir sey paylasirken bir anahtar olarak kullanir.
+              Prisold gizli bir sey paylasirken bir anahtar olarak kullanir.
               Ve biri sizle iletisim kurmak istedigi zaman, iletisim kurma istegi
             </p>
           </div>
