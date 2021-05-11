@@ -72,28 +72,4 @@ const Home = () => {
   );
 };
 
-// Home.getInitialProps = async ({ req, res }) => {
-//   if (req) {
-//     const cookies = new Cookies(req, res);
-//     try {
-//       const token = cookies.get('token');
-//       if (!token) {
-//         throw new Error();
-//       }
-
-//       const { data } = await client.query({ query: GET_HOMEPAGE, variables: { token } });
-//       return { homepageData: data.getHomepage };
-//     } catch (e) {
-//       cookies.set('token', null);
-
-//       return e;
-//     }
-//   }
-//   return {};
-// };
-
 export default Home;
-
-// <button
-// onClick={() => { Cookies.set('token', ''); Cookies.set('user', ''), router.push('/'); }}
-// >exit</button>
