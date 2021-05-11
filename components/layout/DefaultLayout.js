@@ -8,6 +8,7 @@ export default function Layout({ children, className, ...props }) {
   return (
     <div className={clsx(styles.container, className)} {...props}>
       <TopBar />
+      <p>{typeof window !== 'undefined' && window.navigator.platform}</p>
       {children}
       <Navbar />
     </div>
