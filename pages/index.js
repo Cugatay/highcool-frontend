@@ -17,10 +17,13 @@ export default function Landing() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>Prisold</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      {
+  typeof window === 'undefined'
+    ? (
       <main className={styles.main}>
         <LandingHeader />
         <div className={styles.grid}>
@@ -60,6 +63,10 @@ export default function Landing() {
           </div>
         </div>
       </main>
+    )
+    : null
+}
+
     </div>
   );
 }
