@@ -18,7 +18,7 @@ export default function Navbar({ startBelow }) {
   const token = Cookies.get('token');
   const { data, error } = useQuery(NOTIFICATIONS_COUNT, { variables: { token } });
   let prevScrollPos = 0;
-  const [isAbove, setIsAbove] = useState(!startBelow);
+  const [isAbove, setIsAbove] = useState(startBelow);
 
   const handleScroll = () => {
     const currentScrollPos = window.pageYOffset;
