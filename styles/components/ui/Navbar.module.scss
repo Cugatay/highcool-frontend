@@ -41,13 +41,13 @@
         width: 68px;
         height: 68px;
         box-shadow: 0.5px 2px 4px 0 rgba(0, 0, 0, 0.25);
-        background-color: #6ea0fc;
+        background-color: $primary;
         border-radius: 50%;
         margin-bottom: 48px;
         display: flex;
         justify-content: center;
         align-items: center;
-        transition: margin-bottom 0.4s, width 0.1s, height 0.1s;
+        transition: margin-bottom 0.4s, width 0.2s, height 0.2s, border-radious 0.4s;
         // transition: all 0.4s;
         padding: unset;
 
@@ -57,10 +57,11 @@
         }
     }
 
-    .below {
+    .above {
         margin-bottom: 0px;
-        width: 52px;
-        height: 52px;
+        width: 60px;
+        height: 48px;
+        border-radius: 12px;
     }
 
     .invites {

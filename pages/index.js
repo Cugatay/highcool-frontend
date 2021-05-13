@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
 import styles from '../styles/pages/Landing.module.scss';
@@ -16,14 +15,6 @@ export default function Landing() {
   }, []);
   return (
     <div className={styles.container}>
-      <Head>
-        <title>Prisold</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      {
-  typeof window === 'undefined'
-    ? (
       <main className={styles.main}>
         <LandingHeader />
         <div className={styles.grid}>
@@ -63,9 +54,6 @@ export default function Landing() {
           </div>
         </div>
       </main>
-    )
-    : null
-}
 
     </div>
   );

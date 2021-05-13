@@ -70,10 +70,10 @@ body {
   }
 
   @media only screen and (min-width: $desktop-width) {
-    width: $mobile-phone;
+    width: $mobile-width;
     display: block;
     margin: 0 auto;
-    border: 1px solid white;
+    // border: 1px solid white;
     min-height: 100vh;
   }
 

@@ -17,20 +17,31 @@
         align-items: center;
         justify-content: space-between;
         transition: top 0.4s;
+        padding: 0 12px;
 
-        a {
-            font-size: 28px;
-            font-weight: bold;
-            font-stretch: normal;
-            font-style: normal;
-            font-family: SSP-SemiBold;
-            line-height: normal;
-            letter-spacing: normal;
-            margin-left: 12px;
+        .left {
+            display: flex;
+            justify-content: center;
+
+            img {
+                width: 40px;
+                height: 40px;
+            }
+
+            p {
+                font-size: 32px;
+                font-weight: bold;
+                font-stretch: normal;
+                font-style: normal;
+                font-family: SSP-SemiBold;
+                line-height: normal;
+                letter-spacing: normal;
+                margin-left: 8px;
+                // margin-top: -2px;
+            }
         }
 
         .avatar {
-            margin-right: 12px;
             font-family: SSP-SemiBold;
             padding: unset;
         }

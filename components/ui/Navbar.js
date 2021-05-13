@@ -50,23 +50,23 @@ export default function Navbar({ startBelow }) {
 
   return (
     <div className={styles.container}>
-      <a href="/home">
+      <Link href="/home">
         <Button className={clsx(styles.button, pathname === '/home' && styles.active)}>
           <img src="/icons/home.svg" alt="home" />
         </Button>
-      </a>
+      </Link>
       <Link href="/createPost">
-        <Button className={clsx(styles.addButton, !isAbove && styles.below)}>
+        <Button className={clsx(styles.addButton, isAbove && styles.above)}>
           <img src="/icons/add.svg" alt="add" />
         </Button>
       </Link>
-      <a href="/invites">
+      <Link href="/invites">
         <Button className={clsx(styles.button, styles.invites, pathname === '/invites' && styles.active)}>
           <img src="/icons/person_search.svg" alt="invites" />
           {data?.notificationsCount && pathname !== '/invites'
             ? <div className={styles.notifications}>{data?.notificationsCount < 10 ? data?.notificationsCount : '+9'}</div> : null}
         </Button>
-      </a>
+      </Link>
     </div>
   );
 }
