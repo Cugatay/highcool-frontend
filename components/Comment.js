@@ -18,19 +18,22 @@ export default function Comment({ username, nameSurname, content }) {
 
   return (
     <div className={clsx(styles.container, user?.username === username && styles.primary)}>
-      <div className={styles.top}>
-        <Button onClick={pushUserpage} className={clsx('avatar', styles.avatar)}>{nameSurname ? nameSurname[0]?.toUpperCase() : '?'}</Button>
+      <Button onClick={pushUserpage} className={clsx('avatar', styles.avatar, user?.username !== username && styles.others, !username && styles.secret)}>{nameSurname ? nameSurname[0]?.toUpperCase() : <img src="/icons/lock.svg" alt="Gizli" />}</Button>
+
+      <div className={styles.right}>
         <div className={styles.user}>
           <span className={styles.nameSurname}>
-            {nameSurname || '??'}
+            {nameSurname}
           </span>
           <span className={styles.username}>
-            @
-            {username}
+            {
+            username
+              ? `@${username}` : 'Gizli'
+            }
           </span>
         </div>
+        <div className={styles.content}>{content}</div>
       </div>
-      <div className={styles.content}>{content}</div>
     </div>
   );
 }
