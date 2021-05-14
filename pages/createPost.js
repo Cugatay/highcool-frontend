@@ -40,7 +40,7 @@ export default function CreatePost() {
         variables: { token, content: textAreaRef.current.value, isPrivate },
       });
 
-      router.push(`/post?p=${data.createPost.post_id}`);
+      window.location = '/home';
     } catch (e) {
       setIsLoading(false);
     }
