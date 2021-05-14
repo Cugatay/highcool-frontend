@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { gql, useQuery } from '@apollo/client';
 import Cookies from 'js-cookie';
 import IncomingInvite from '../components/IncomingInvite';
@@ -56,15 +56,27 @@ query Invites($token: String!){
 }
 `;
 
+// accepted_new, incoming, accepted_old, sent
+
 export default function Invites() {
   const token = Cookies.get('token');
-  const { data } = useQuery(GET_INVITES_PAGE, { variables: { token } });
+  const { data: comingData } = useQuery(GET_INVITES_PAGE, { variables: { token } });
+  const [data, setData] = useState(comingData);
+
+  useEffect(() => {
+    setData(comingData);
+  }, [comingData]);
+
+  console.log('000000000000000000000000');
+  console.log(data);
 
   return (
     <Layout className={styles.container}>
       {data
         ? (
           <>
+            {!data.accepted_new?.length && !data.incoming?.length && !data.accepted_old?.length && !data.sent?.length
+              ? <div className={styles.noInvite}>Henüz bir davetiyeniz bulunmamakta</div> : null}
             {data.invites.accepted_new.length
               ? (
                 <div className={styles.newInvites}>
@@ -91,6 +103,8 @@ export default function Invites() {
                       postContent={incomingInvite.post.content}
                       senderName={incomingInvite.sender.nameSurname}
                       inviteMessage={incomingInvite.content}
+                      data={data}
+                      setData={setData}
                     />
                   ))}
                 </div>

@@ -21,4 +21,12 @@
             // background: linear-gradient(to right, rgba(66,66,66, 0.4) 50%, $secondary 100%);
         }
     }
+
+    .noInvite {
+        text-align: center;
+        font-size: 18px;
+        text-decoration: underline;
+        color: rgba(220,220,220, 0.4);
+        padding-top: 16px;
+    }
 }

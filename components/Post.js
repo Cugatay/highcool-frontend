@@ -93,6 +93,8 @@ export default function Post({
       setIsInviteContentVisible(false);
       if (e.message === 'sender_and_receiver_cannot_be_same_account') {
         alert('Bu post zaten size ait');
+      } else if (e.message === 'user_already_accepted_your_invite') {
+        alert('Bu postun sahibi zaten isteğinizi kabul etti!');
       } else {
         alert('Bir şeyler ters gitti');
       }

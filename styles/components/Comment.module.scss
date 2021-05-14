@@ -6,8 +6,9 @@
     border-radius: 12px;
     padding: 12px;
     margin-bottom: 12px;
-    margin: 0 auto 12px auto;
     display: flex;
+    width: max-content;
+    max-width: 100%;
 
     .avatar {
         min-width: 42px;
@@ -16,6 +17,7 @@
         font-size: 20px;
         padding: unset;
         font-family: SSP-Regular;
+        margin-right: 12px;
     }
 
     .others {
@@ -28,11 +30,10 @@
         
     .right {
         flex: 1;
-        margin-left: 8px;
 
         .user {
             // display: flex;
-            width: 230px;
+            max-width: 230px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -46,16 +47,6 @@
                 line-height: normal;
                 letter-spacing: normal;
                 margin-right: 4px;
-            }
-
-            .username {
-                font-size: 14px;
-                font-weight: normal;
-                font-stretch: normal;
-                font-style: normal;
-                line-height: normal;
-                letter-spacing: normal;
-                opacity: 0.6;
             }
         }
 
@@ -73,13 +64,24 @@
 }
 
 .primary {
-    background-color: unset;
-    background: $primary;
     display: flex;
-    // flex-direction: row-reverse;
-    // tify-content: right;
+    justify-content: space-between;
 
-    .avatar {
-        background: $linear-primary;
+    .provider {
+        width: 1px;
+    }
+    .container {
+        right: 0;
+        background-color: unset;
+        background: $primary;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        // tify-content: right;
+
+        .avatar {
+            background: $linear-primary;
+            margin: 0 0 0 12px;
+        }
     }
 }

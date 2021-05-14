@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import React from 'react';
+import React, { useState } from 'react';
 import Cookies from 'js-cookie';
 import { gql } from '@apollo/client';
 import styles from '../styles/components/IncomingInvite.module.scss';
@@ -15,17 +15,24 @@ const ACCEPT_OR_DECLINE = gql`
 `;
 
 export default function IncomingInvite({
-  id, postContent, senderName, inviteMessage, token,
+  id, postContent, senderName, inviteMessage, token, data, setData,
 }) {
   let user = Cookies.get('user');
   user = user ? JSON.parse(user) : null;
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const handleAcceptOrDecline = async (isAccepted) => {
+    // setIsLoading(true);
     try {
-      const { data } = await ApolloClient.mutate({
+      await ApolloClient.mutate({
         mutation: ACCEPT_OR_DECLINE, variables: { token, invite_id: id, isAccepted },
       });
+
+      const newIncoming = data.invites.incoming.filter((invite) => invite._id !== id);
+      setData({ invites: { ...data.invites, incoming: newIncoming } });
     } catch (e) {
+      console.log(e);
       alert('Bir şeyler ters gitti');
     }
   };
@@ -63,8 +70,8 @@ export default function IncomingInvite({
           </div>
 
           <div className={styles.acceptOrDecline}>
-            <Button><img src="/icons/decline.svg" alt="Decline" /></Button>
-            <Button><img src="/icons/accept.svg" alt="Accept" /></Button>
+            <Button onClick={() => handleAcceptOrDecline(false)} loading={isLoading}><img src="/icons/decline.svg" alt="Decline" /></Button>
+            <Button onClick={() => handleAcceptOrDecline(true)} loading={isLoading}><img src="/icons/accept.svg" alt="Accept" /></Button>
           </div>
         </div>
         <span className={styles.content}>

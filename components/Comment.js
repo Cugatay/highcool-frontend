@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import clsx from 'clsx';
 import React from 'react';
 import { useRouter } from 'next/router';
@@ -17,22 +19,26 @@ export default function Comment({ username, nameSurname, content }) {
   };
 
   return (
-    <div className={clsx(styles.container, user?.username === username && styles.primary)}>
-      <Button onClick={pushUserpage} className={clsx('avatar', styles.avatar, user?.username !== username && styles.others, !username && styles.secret)}>{nameSurname ? nameSurname[0]?.toUpperCase() : <img src="/icons/lock.svg" alt="Gizli" />}</Button>
+    <div className={clsx(styles.cover, user?.username === username && styles.primary)}>
+      {
+        user?.username === username
+        && <div className={styles.provider} />
+      }
 
-      <div className={styles.right}>
-        <div className={styles.user}>
-          <span className={styles.nameSurname}>
-            {nameSurname}
+      <div className={clsx(styles.container)}>
+        <Button onClick={pushUserpage} className={clsx('avatar', styles.avatar, user?.username !== username && styles.others, !username && styles.secret)}>{nameSurname ? nameSurname[0]?.toUpperCase() : <img src="/icons/lock.svg" alt="Gizli" />}</Button>
+
+        <div className={styles.right}>
+          <div className={styles.user}>
+            {username !== user.username
+          && (
+          <span onClick={pushUserpage} className={styles.nameSurname}>
+            {nameSurname || 'Gizli'}
           </span>
-          <span className={styles.username}>
-            {
-            username
-              ? `@${username}` : 'Gizli'
-            }
-          </span>
+          )}
+          </div>
+          <div className={styles.content}>{content}</div>
         </div>
-        <div className={styles.content}>{content}</div>
       </div>
     </div>
   );
