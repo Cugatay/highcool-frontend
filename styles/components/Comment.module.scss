@@ -2,11 +2,10 @@
 
 .container {
     background-color: $secondary;
+    overflow: hidden;
     border-radius: 12px;
-    // padding: 16px 12px;
     padding: 12px;
     margin-bottom: 12px;
-    // max-width: 80%;
     margin: 0 auto 12px auto;
     display: flex;
 
@@ -33,7 +32,10 @@
 
         .user {
             // display: flex;
-            flex-direction: column;
+            width: 230px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
             // justify-content: center;
 
             .nameSurname {
@@ -43,6 +45,7 @@
                 font-style: normal;
                 line-height: normal;
                 letter-spacing: normal;
+                margin-right: 4px;
             }
 
             .username {
@@ -57,12 +60,14 @@
         }
 
         .content {
+            width: 100%;
             font-size: 20px;
             font-family: SSP-Light;
             font-stretch: normal;
             font-style: normal;
             line-height: normal;
             letter-spacing: normal;
+            word-break: break-word;
         }
     }
 }
