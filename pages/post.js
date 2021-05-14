@@ -79,7 +79,7 @@ export default function PostPage() {
   }, [error]);
 
   useEffect(() => {
-    if (data?.post && typeof window !== 'undefined' && typeof document !== 'undefined') {
+    if (data?.post && data?.post.commentsInfo.comments.length > 2 && typeof window !== 'undefined' && typeof document !== 'undefined') {
       if (render === false) {
         scrollToBottom();
       }
