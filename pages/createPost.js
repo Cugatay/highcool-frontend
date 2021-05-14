@@ -35,7 +35,7 @@ export default function CreatePost() {
   const toggleCreatePost = async () => {
     try {
       setIsLoading(true);
-      const { data } = await ApolloClient.mutate({
+      await ApolloClient.mutate({
         mutation: CREATE_POST,
         variables: { token, content: textAreaRef.current.value, isPrivate },
       });

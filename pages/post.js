@@ -95,7 +95,7 @@ export default function PostPage() {
   }, [data?.post?.commentsInfo]);
 
   return (
-    <Layout hideFirst={data?.post.commentsInfo.comments?.length > 0} className={styles.content} style={{ overflow: 'hidden' }} postId={queryPostId} newMessages={newMessages} setNewMessage={setNewMessage}>
+    <Layout hideFirst={data?.post.commentsInfo.comments?.length > 2} className={styles.content} style={{ overflow: 'hidden' }} postId={queryPostId} newMessages={newMessages} setNewMessage={setNewMessage}>
       {
           data?.post
             ? (
