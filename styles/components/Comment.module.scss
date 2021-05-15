@@ -3,11 +3,10 @@
 .case {
     display: flex;
     align-items: flex-end;
-    max-width: 90%;
+    width: 100%;
 
     span {
         color: rgba(255, 255, 255, 0.5);
-        margin: 20px 8px;
     }
 }
 
@@ -19,7 +18,8 @@
     margin-bottom: 12px;
     display: flex;
     width: max-content;
-    max-width: 100%;
+    // max-width: 100%;
+    // max-width: 90%;
 
     .avatar {
         min-width: 42px;
@@ -43,12 +43,12 @@
         flex: 1;
 
         .user {
-            // display: flex;
             max-width: 230px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            // justify-content: center;
+            display: flex;
+            align-items: center;
 
             .nameSurname {
                 font-size: 16px;
@@ -57,7 +57,11 @@
                 font-style: normal;
                 line-height: normal;
                 letter-spacing: normal;
-                margin-right: 4px;
+            }
+
+            .timeAgo {
+                margin: 0 8px;
+                font-size: 12px;
             }
         }
 
@@ -99,5 +103,13 @@
             background: $linear-primary;
             margin: 0 0 0 12px;
         }
+
+        // .user {
+        //     width: 100%;
+        //     justify-content: flex-end;
+
+        //     .timeAgo {
+        //     }
+        // }
     }
 }

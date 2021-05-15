@@ -40,18 +40,20 @@ export default function Comment({
             <div className={styles.user}>
               {username !== user.username
               && (
-              <span onClick={pushUserpage} className={styles.nameSurname}>
-                {nameSurname || 'Gizli'}
-              </span>
+                <>
+                  <span onClick={pushUserpage} className={styles.nameSurname}>
+                    {nameSurname || 'Gizli'}
+                  </span>
+
+                  <span className={styles.timeAgo}>
+                    <TimeAgo date={createdAt} formatter={timeAgoFormatter} />
+                  </span>
+                </>
               )}
             </div>
             <div className={styles.content}>{content}</div>
           </div>
         </div>
-
-        <span>
-          <TimeAgo date={createdAt} formatter={timeAgoFormatter} />
-        </span>
       </div>
     </div>
   );
