@@ -72,8 +72,8 @@ export default function Login() {
           : { usernameOrEmail: usernameOrEmail.current.value, password: password.current.value },
       });
 
-      Cookies.set('token', data.register?.token || data.login?.token, { expires: 7 });
-      Cookies.set('user', data.register ? JSON.stringify(data.register.user) : JSON.stringify(data.login.user), { expires: 7 });
+      Cookies.set('token', data.register?.token || data.login?.token, { expires: 365 });
+      Cookies.set('user', data.register ? JSON.stringify(data.register.user) : JSON.stringify(data.login.user), { expires: 365 });
 
       setUserValue({
         token: data.login?.token || data.register?.token,

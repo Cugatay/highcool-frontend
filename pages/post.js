@@ -79,7 +79,9 @@ export default function PostPage() {
   }, [error]);
 
   useEffect(() => {
-    if (data?.post && data?.post.commentsInfo.comments.length > 2 && typeof window !== 'undefined' && typeof document !== 'undefined') {
+    if (data?.post /* && data?.post.commentsInfo.comments.length > 2 */ && typeof window !== 'undefined' && typeof document !== 'undefined') {
+      setNewMessage([]);
+
       if (render === false) {
         scrollToBottom();
       }
@@ -89,13 +91,11 @@ export default function PostPage() {
         scrollToNewMessage();
       }
       setRender(true);
-
-      setNewMessage([]);
     }
   }, [data?.post?.commentsInfo]);
 
   return (
-    <Layout hideFirst={data?.post.commentsInfo.comments?.length > 2} className={styles.content} style={{ overflow: 'hidden' }} postId={queryPostId} newMessages={newMessages} setNewMessage={setNewMessage}>
+    <Layout hideFirst={data?.post.commentsInfo.comments?.length > 4} className={styles.content} style={{ overflow: 'hidden' }} postId={queryPostId} newMessages={newMessages} setNewMessage={setNewMessage}>
       {
           data?.post
             ? (
