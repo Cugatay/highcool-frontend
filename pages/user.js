@@ -22,6 +22,7 @@ const GET_USERPAGE = gql`
         posts {
           _id
           content
+          createdAt
           likesInfo {
             likesRate
             isLiked
@@ -143,6 +144,7 @@ export default function UserPage() {
                     username={data?.user?.username}
                   // createdAt={post.createdAt}
                     content={post.content}
+                    createdAt={post.createdAt}
                     likesInfo={post.likesInfo}
                   // today={today}
                     commentsCount={post.commentsInfo?.count}

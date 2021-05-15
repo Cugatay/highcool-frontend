@@ -43,6 +43,7 @@ query Invites($token: String!){
       post {
         _id
         content
+        createdAt
         likesInfo {
           likesRate
           isLiked
@@ -75,7 +76,8 @@ export default function Invites() {
       {data
         ? (
           <>
-            {!data.accepted_new?.length && !data.incoming?.length && !data.accepted_old?.length && !data.sent?.length
+            {!data.accepted_new?.length && !data.incoming?.length
+            && !data.accepted_old?.length && !data.sent?.length
               ? <div className={styles.noInvite}>Henüz bir davetiyeniz bulunmamakta</div> : null}
             {data.invites.accepted_new.length
               ? (
@@ -138,6 +140,7 @@ export default function Invites() {
                         tagless
                         id={post._id}
                         content={post.content}
+                        createdAt={post.createdAt}
                         likesInfo={{ likesRate: 15, isLiked: false }}
                         commentsCount={3}
                       />

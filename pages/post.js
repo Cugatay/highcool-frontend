@@ -21,6 +21,7 @@ const GET_POST = gql`
             username
         }
         content
+        createdAt
         likesInfo {
             likesRate
             isLiked
@@ -32,6 +33,7 @@ const GET_POST = gql`
                 username
             }
             content
+            createdAt
             likesInfo {
                 likesRate
                 isLiked
@@ -105,6 +107,7 @@ export default function PostPage() {
                   nameSurname={data.post.user?.nameSurname}
                   username={data.post.user?.username}
                   content={data.post.content}
+                  createdAt={data.post.createdAt}
                   likesInfo={data.post.likesInfo}
                   commentsCount={data.post.commentsInfo?.count}
                 />
@@ -114,6 +117,7 @@ export default function PostPage() {
                       username={comment.user?.username}
                       nameSurname={comment.user?.nameSurname}
                       content={comment.content}
+                      createdAt={comment.createdAt}
                     />
                   ))
                 }
@@ -128,6 +132,7 @@ export default function PostPage() {
                     username={newMessage.user ? user.username : null}
                     nameSurname={newMessage.user ? user.nameSurname : null}
                     content={newMessage.content}
+                    // createdAt={newMessage.createdAt}
                   />
                 ))}
               </div>

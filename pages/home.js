@@ -16,8 +16,8 @@ const GET_HOMEPAGE = gql`
         nameSurname
         username
       }
-      # createdAt
       content
+      createdAt
       likesInfo {
         likesRate
         isLiked
@@ -56,6 +56,7 @@ const Home = () => {
             username={post.user?.username}
             // createdAt={post.createdAt}
             content={post.content}
+            createdAt={post.createdAt}
             likesInfo={post.likesInfo}
             // today={today}
             commentsCount={post.commentsInfo?.count}

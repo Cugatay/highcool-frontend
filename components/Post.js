@@ -5,6 +5,7 @@ import React, { useRef, useState } from 'react';
 import { gql } from '@apollo/client';
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
+import TimeAgo from 'react-timeago';
 import styles from '../styles/components/Post.module.scss';
 import Button from './ui/Button';
 import ApolloClient from '../apollo-client';
@@ -27,7 +28,7 @@ const LEARN_POST_OWNER = gql`
 
 export default function Post({
   id, nameSurname, username, // createdAt,
-  content, likesInfo, commentsCount, tagless, // , today,
+  content, likesInfo, commentsCount, tagless, createdAt, // , today,
 }) {
   const router = useRouter();
 
@@ -126,17 +127,20 @@ export default function Post({
         </div>
         {/* User must be able to use our app with just one hand.
         And the position of invite button is don't let that. */}
-        {
-          !username && id
-        && (
-        <Button
-          onClick={() => setIsInviteContentVisible(!isInviteContentVisible)}
-          className={styles.invite}
-        >
-          <img src="/icons/person_search.svg" alt="invite" />
-        </Button>
-        )
-        }
+        <div className={styles.right}>
+          <span><TimeAgo date={createdAt} /></span>
+          {
+            !username && id
+            && (
+            <Button
+              onClick={() => setIsInviteContentVisible(!isInviteContentVisible)}
+              className={styles.invite}
+            >
+              <img src="/icons/person_search.svg" alt="invite" />
+            </Button>
+            )
+          }
+        </div>
       </div>
 
       <div className={styles.tags}>
