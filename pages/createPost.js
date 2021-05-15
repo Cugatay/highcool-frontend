@@ -61,6 +61,7 @@ export default function CreatePost() {
           className={styles.textArea}
           minRows={4}
           maxRows={5}
+          autoFocus
           placeholder="Düşüncelerini Yaz..."
           onChange={(e) => {
             if (e.target.value[0] !== ' ' && e.target.value[0] !== '\n') {
