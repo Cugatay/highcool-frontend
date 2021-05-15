@@ -1,5 +1,15 @@
 @import '../variables';
 
+.case {
+    display: flex;
+    align-items: flex-end;
+
+    span {
+        color: rgba(255, 255, 255, 0.5);
+        margin: 20px 8px;
+    }
+}
+
 .container {
     background-color: $secondary;
     overflow: hidden;
@@ -72,27 +82,21 @@
     }
 
     .case {
+        flex-direction: row-reverse;
+    }
+
+    .container {
+        right: 0;
+        background-color: unset;
+        background: $primary;
         display: flex;
-        align-items: flex-end;
+        flex-direction: row-reverse;
+        align-items: center;
+        // tify-content: right;
 
-        span {
-            color: rgba(255, 255, 255, 0.5);
-            margin: 20px 8px;
-        }
-
-        .container {
-            right: 0;
-            background-color: unset;
-            background: $primary;
-            display: flex;
-            flex-direction: row-reverse;
-            align-items: center;
-            // tify-content: right;
-
-            .avatar {
-                background: $linear-primary;
-                margin: 0 0 0 12px;
-            }
+        .avatar {
+            background: $linear-primary;
+            margin: 0 0 0 12px;
         }
     }
 }

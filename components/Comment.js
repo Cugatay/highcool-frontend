@@ -33,9 +33,6 @@ export default function Comment({
       }
 
       <div className={styles.case}>
-        <span>
-          <TimeAgo date={createdAt} formatter={timeAgoFormatter} />
-        </span>
         <div className={clsx(styles.container)}>
           <Button onClick={pushUserpage} className={clsx('avatar', styles.avatar, user?.username !== username && styles.others, !username && styles.secret)}>{nameSurname ? nameSurname[0]?.toUpperCase() : <img src="/icons/lock.svg" alt="Gizli" />}</Button>
 
@@ -51,6 +48,10 @@ export default function Comment({
             <div className={styles.content}>{content}</div>
           </div>
         </div>
+
+        <span>
+          <TimeAgo date={createdAt} formatter={timeAgoFormatter} />
+        </span>
       </div>
     </div>
   );
