@@ -1,0 +1,22 @@
+{
+    "something_went_wrong": "Bir hata oluştu, lütfen daha sonra tekrar deneyin",
+    "fill_required_values": "Gerekli yerleri boş bırakmayınız efendi",
+    "user_not_found": "Böyle bir kullanıcı bulunmamakta",
+    "username_is_in_use": "Bu kullanıcı adı müsait değil",
+    "email_is_in_use": "Bu e-posta müsait değil",
+    "logistration_error": "Kullanıcı adı yada şifre hatalı",
+    "activate_email": "Lütfen kayıtlı olduğunuz e-postayı doğrulayınız",
+    "post_not_found": "Böyle bir post bulunmamakta",
+    "already_verified": "E-postanızı zaten doğruladınız",
+    "code_does_not_match": "Girmiş olduğunuz kod hatalı",
+    "target_not_found": "Böyle bir kullanıcı bulunmamakta",
+    "target_user_must_be_different_person": "Kendini takip etmeyi mi deneyeceksin cidden ya...",
+    "false_type": "Hatalı bir istekte bulundunuz, siteyi test ediyorsanız bundan vazgeçmenizi tavsiye ederim!",
+    "message_not_secret": "Bu mesaj gizli değil",
+    "sender_and_receiver_cannot_be_same_account": "Kendine mesaj göndermek gibi bir durum yok reiz, vazgeç",
+    "you_already_sent_invite_for_same_post": "Bu gönderiye zaten istek attın",
+    "user_already_accepted_your_invite": "Kullanıcı zaten senin isteğini kabul etti, davetlerim sayfasını kontrol et!",
+    "invite_not_found": "Böyle bir davetiye bulunmamakta",
+    "not_authorised": "Hacker mısın karrrrdeşim?",
+    "already_accepted": "Bu davetiyeyi zaten kabul ettiniz"
+}

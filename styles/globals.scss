@@ -73,8 +73,9 @@ body {
     width: $mobile-width;
     display: block;
     margin: 0 auto;
-    // border: 1px solid white;
-    min-height: 100vh;
+    border: 1px solid white;
+    position: relative;
+    // min-height: 100vh;
   }
 
   .avatar {

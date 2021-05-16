@@ -1,4 +1,4 @@
-import React, { useEffect } /* , { useContext, useState } */ from 'react';
+import React, { useEffect } from 'react';
 // import Cookies from 'cookies';
 import Cookies from 'js-cookie';
 import { useQuery, gql } from '@apollo/client';
@@ -44,7 +44,6 @@ const Home = () => {
       router?.push('/');
     }
   }, []);
-
   return (
     <Layout>
       {

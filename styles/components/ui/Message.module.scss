@@ -1,0 +1,32 @@
+.case {
+    width: 100%;
+    position: fixed;
+    top: -20px;
+    left: 0;
+    margin-top: 140px;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    animation: animation 0.2s;
+
+    .container {
+        width: max-content;
+        text-align: center;
+        padding: 6px 12px;
+        border-radius: 8px;
+        cursor: default;
+    }
+
+    .error {
+        background-color: red;
+    }
+
+    .success {
+        background-color: rgb(0, 175, 0);
+    }
+}
+
+@keyframes animation {
+    from {margin-top: 0;}
+    to {margin-top: 140px;}
+}

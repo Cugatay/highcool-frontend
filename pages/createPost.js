@@ -19,7 +19,7 @@ const CREATE_POST = gql`
 `;
 
 export default function CreatePost() {
-  const [isPrivate, setIsPrivate] = useState(false);
+  const [isPrivate, setIsPrivate] = useState(true);
   const [isContained, setIsContained] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const textAreaRef = useRef(null);

@@ -1,31 +1,28 @@
 @import '../variables';
 .container {
-    h2 {
-        padding-bottom: 4px;
-        margin-bottom: 12px;
-        // padding-left: 12px;
-        // margin-left: -12px;
-        // text-align: center;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        font-size: 24px;
-        font-weight: bold;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: normal;
-        letter-spacing: normal;
-    }
+    // h2 {
+    //     padding-bottom: 4px;
+    //     margin-bottom: 12px;
+    //     // padding-left: 12px;
+    //     // margin-left: -12px;
+    //     // text-align: center;
+    //     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    //     font-size: 24px;
+    //     font-weight: bold;
+    //     font-stretch: normal;
+    //     font-style: normal;
+    //     line-height: normal;
+    //     letter-spacing: normal;
+    // }
 
     .post {
         opacity: 0.6;
-        & > :first-child {
-            // background: linear-gradient(to right, rgba(66,66,66, 0.4) 50%, $secondary 100%);
-        }
     }
 
     .noInvite {
         text-align: center;
         font-size: 18px;
-        text-decoration: underline;
+        // text-decoration: underline;
         color: rgba(220,220,220, 0.4);
         padding-top: 16px;
     }

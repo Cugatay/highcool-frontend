@@ -11,6 +11,7 @@ import buildFormatter from 'react-timeago/lib/formatters/buildFormatter';
 import styles from '../styles/components/Post.module.scss';
 import Button from './ui/Button';
 import ApolloClient from '../apollo-client';
+import Message from './ui/Message';
 
 const TOGGLE_LIKE = gql`
   mutation VotePost($token: String!, $object_id: ID!, $isLiked: Boolean!) {
@@ -43,6 +44,7 @@ export default function Post({
   const [isInviteContentVisible, setIsInviteContentVisible] = useState(false);
   const [isInviteButtonLoading, setIsInviteButtonLoading] = useState(false);
   const [isLiked, setIsLiked] = useState(likesInfo.isLiked);
+  const [message, setMessage] = useState({ message: null, isError: false });
 
   let likesRate = isLiked ? likesInfo.likesRate + 1
     : isLiked === false ? likesInfo.likesRate - 1 : likesInfo.likesRate;
@@ -97,11 +99,11 @@ export default function Post({
       setIsInviteButtonLoading(false);
       setIsInviteContentVisible(false);
       if (e.message === 'sender_and_receiver_cannot_be_same_account') {
-        alert('Bu post zaten size ait');
+        setMessage({ message: 'Bu post zaten size ait', isError: true });
       } else if (e.message === 'user_already_accepted_your_invite') {
-        alert('Bu postun sahibi zaten isteğinizi kabul etti!');
+        setMessage({ message: 'Bu postun sahibi zaten isteğinizi kabul etti!', isError: true });
       } else {
-        alert('Bir şeyler ters gitti');
+        setMessage({ message: 'Bir şeyler ters gitti', isError: true });
       }
     }
   };
@@ -111,6 +113,15 @@ export default function Post({
       className={clsx(styles.post,
         !tagless && (likesRate > 3 || commentsCount > 10) && styles.tagful)}
     >
+      {message?.message
+      && (
+      <Message
+        message={message.message}
+        clearMessage={() => setMessage({ ...message, message: null })}
+        isError={message.isError}
+      />
+      )}
+
       <div className={styles.head}>
         <div className={styles.user}>
           <Button

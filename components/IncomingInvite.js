@@ -15,7 +15,7 @@ const ACCEPT_OR_DECLINE = gql`
 `;
 
 export default function IncomingInvite({
-  id, postContent, senderName, inviteMessage, token, data, setData,
+  id, postContent, senderName, inviteMessage, token, data, setData, setMessage,
 }) {
   let user = Cookies.get('user');
   user = user ? JSON.parse(user) : null;
@@ -23,7 +23,7 @@ export default function IncomingInvite({
   const [isLoading, setIsLoading] = useState(false);
 
   const handleAcceptOrDecline = async (isAccepted) => {
-    // setIsLoading(true);
+    setIsLoading(true);
     try {
       await ApolloClient.mutate({
         mutation: ACCEPT_OR_DECLINE, variables: { token, invite_id: id, isAccepted },
@@ -31,10 +31,11 @@ export default function IncomingInvite({
 
       const newIncoming = data.invites.incoming.filter((invite) => invite._id !== id);
       setData({ invites: { ...data.invites, incoming: newIncoming } });
+      setMessage({ message: 'İşleminiz Başarıyla Gerçekleştirildi', isError: false });
     } catch (e) {
-      console.log(e);
-      alert('Bir şeyler ters gitti');
+      setMessage({ message: 'Bir şeyler ters gitti', isError: true });
     }
+    setIsLoading(false);
   };
 
   return (

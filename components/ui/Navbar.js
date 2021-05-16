@@ -6,6 +6,7 @@ import Cookies from 'js-cookie';
 import { gql, useQuery } from '@apollo/client';
 import Button from './Button';
 import styles from '../../styles/components/ui/Navbar.module.scss';
+import useIsMobile from '../../hooks/useIsMobile';
 
 const NOTIFICATIONS_COUNT = gql`
   query NotificationsCount($token: String!) {
@@ -19,6 +20,8 @@ export default function Navbar({ startBelow }) {
   const { data, error } = useQuery(NOTIFICATIONS_COUNT, { variables: { token } });
   let prevScrollPos = 0;
   const [isAbove, setIsAbove] = useState(startBelow);
+
+  const isMobile = useIsMobile();
 
   const handleScroll = () => {
     const currentScrollPos = window.pageYOffset;
@@ -48,25 +51,28 @@ export default function Navbar({ startBelow }) {
     }
   }, [error]);
 
-  return (
-    <div className={styles.container}>
-      <Link href="/home">
-        <Button className={clsx(styles.button, pathname === '/home' && styles.active)}>
-          <img src="/icons/home.svg" alt="home" />
-        </Button>
-      </Link>
-      <Link href="/createPost">
-        <Button className={clsx(styles.addButton, isAbove && styles.above)}>
-          <img src="/icons/add.svg" alt="add" />
-        </Button>
-      </Link>
-      <Link href="/invites">
-        <Button className={clsx(styles.button, styles.invites, pathname === '/invites' && styles.active)}>
-          <img src="/icons/person_search.svg" alt="invites" />
-          {data?.notificationsCount && pathname !== '/invites'
-            ? <div className={styles.notifications}>{data?.notificationsCount < 10 ? data?.notificationsCount : '+9'}</div> : null}
-        </Button>
-      </Link>
-    </div>
-  );
+  if (isMobile) {
+    return (
+      <div className={styles.container}>
+        <a href="/home">
+          <Button className={clsx(styles.button, pathname === '/home' && styles.active)}>
+            <img src="/icons/home.svg" alt="home" />
+          </Button>
+        </a>
+        <Link href="/createPost">
+          <Button className={clsx(styles.addButton, isAbove && styles.above)}>
+            <img src="/icons/add.svg" alt="add" />
+          </Button>
+        </Link>
+        <a href="/invites">
+          <Button className={clsx(styles.button, styles.invites, pathname === '/invites' && styles.active)}>
+            <img src="/icons/person_search.svg" alt="invites" />
+            {data?.notificationsCount && pathname !== '/invites'
+              ? <div className={styles.notifications}>{data?.notificationsCount < 10 ? data?.notificationsCount : '+9'}</div> : null}
+          </Button>
+        </a>
+      </div>
+    );
+  }
+  return null;
 }

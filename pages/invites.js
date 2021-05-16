@@ -7,6 +7,7 @@ import Post from '../components/Post';
 import styles from '../styles/pages/Invites.module.scss';
 import AcceptedInvite from '../components/AcceptedInvite';
 import PostSkeleton from '../components/skeleton/PostSkeleton';
+import Message from '../components/ui/Message';
 
 const GET_INVITES_PAGE = gql`
 query Invites($token: String!){
@@ -64,20 +65,27 @@ export default function Invites() {
   const { data: comingData } = useQuery(GET_INVITES_PAGE, { variables: { token } });
   const [data, setData] = useState(comingData);
 
+  const [message, setMessage] = useState({ message: null, isError: false });
+
   useEffect(() => {
     setData(comingData);
   }, [comingData]);
 
-  console.log('000000000000000000000000');
-  console.log(data);
-
   return (
     <Layout className={styles.container}>
+      {message?.message
+      && (
+      <Message
+        message={message.message}
+        clearMessage={() => setMessage({ ...message, message: null })}
+        isError={message.isError}
+      />
+      )}
       {data
         ? (
           <>
-            {!data.accepted_new?.length && !data.incoming?.length
-            && !data.accepted_old?.length && !data.sent?.length
+            {!data.invites.accepted_new?.length && !data.invites.incoming?.length
+            && !data.invites.accepted_old?.length && !data.invites.sent?.length
               ? <div className={styles.noInvite}>Henüz bir davetiyeniz bulunmamakta</div> : null}
             {data.invites.accepted_new.length
               ? (
@@ -107,6 +115,7 @@ export default function Invites() {
                       inviteMessage={incomingInvite.content}
                       data={data}
                       setData={setData}
+                      setMessage={setMessage}
                     />
                   ))}
                 </div>

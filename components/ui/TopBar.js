@@ -7,6 +7,7 @@ import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
 import styles from '../../styles/components/ui/TopBar.module.scss';
 import Button from './Button';
+import useIsMobile from '../../hooks/useIsMobile';
 
 export default function TopBar({ hideFirst }) {
   const router = useRouter();
@@ -15,6 +16,8 @@ export default function TopBar({ hideFirst }) {
   user = user ? JSON.parse(user) : null;
   let prevScrollPos = 0;
   const [isVisible, setIsVisible] = useState(!hideFirst);
+
+  const isMobile = useIsMobile();
 
   const handleScroll = () => {
     const currentScrollPos = window.pageYOffset;
@@ -29,16 +32,20 @@ export default function TopBar({ hideFirst }) {
   };
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      window.addEventListener('scroll', handleScroll);
+    if (isMobile) {
+      if (typeof window !== 'undefined') {
+        window.addEventListener('scroll', handleScroll);
+      }
     }
 
     return () => {
-      if (typeof window !== 'undefined') {
-        window.removeEventListener('scroll', handleScroll);
+      if (isMobile) {
+        if (typeof window !== 'undefined') {
+          window.removeEventListener('scroll', handleScroll);
+        }
       }
     };
-  }, []);
+  }, [isMobile]);
 
   return (
     <div className={styles.container}>
