@@ -36,7 +36,7 @@ export default function Landing() {
             </p>
 
             <div className={styles.github}>
-              <a href="https://github.com/Cugatay/highcool-backend">https://github.com/Cugatay/highcool-backend</a>
+              <a href="https://github.com/Cugatay/highcool-backend" target="_blank" rel="noreferrer">https://github.com/Cugatay/highcool-backend</a>
             </div>
           </div>
 
@@ -51,7 +51,7 @@ export default function Landing() {
             <div className={styles.github}>
               Sitenin Kodları:
               {' '}
-              <a href="https://github.com/Cugatay/highcool-backend">https://github.com/Cugatay/highcool-backend</a>
+              <a href="https://github.com/Cugatay/highcool-backend" target="_blank" rel="noreferrer">https://github.com/Cugatay/highcool-backend</a>
             </div>
           </div>
 
