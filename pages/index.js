@@ -18,6 +18,8 @@ export default function Landing() {
       <main className={styles.main}>
         <LandingHeader />
         <div className={styles.grid}>
+          {/* <iframe src="https://www.youtube.com/embed/sUr4GBzEqNs" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen /> */}
+
           <div className={styles.card}>
             <h3>Bu Site Ne Ulan?</h3>
             <p>
