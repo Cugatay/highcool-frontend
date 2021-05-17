@@ -8,7 +8,7 @@ import errors from '../../backend-errors.json';
 export default function Message({
   onlyTranslate, message, clearMessage, isError, timeout,
 }) {
-  const messageText = isError ? errors[message] || message : message;
+  const messageText = isError ? errors[message] || 'Bir Şeyler Ters Gitti' : message;
 
   let timeOut;
 

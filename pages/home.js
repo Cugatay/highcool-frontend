@@ -39,9 +39,13 @@ const Home = () => {
 
   useEffect(() => {
     if (error) {
-      Cookies.set('token', '');
-      Cookies.set('user', '');
-      router?.push('/');
+      if (error.message === 'activate_email') {
+        router.push('/verificate');
+      } else {
+        Cookies.set('token', '');
+        Cookies.set('user', '');
+        router?.push('/');
+      }
     }
   }, []);
   return (

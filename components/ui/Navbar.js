@@ -45,9 +45,13 @@ export default function Navbar({ startBelow }) {
 
   useEffect(() => {
     if (error) {
-      routerPush('/');
-      Cookies.set('user', '');
-      Cookies.set('token', '');
+      if (error.message === 'activate_email') {
+        routerPush('/verificate');
+      } else {
+        routerPush('/');
+        Cookies.set('user', '');
+        Cookies.set('token', '');
+      }
     }
   }, [error]);
 
