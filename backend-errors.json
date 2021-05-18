@@ -13,9 +13,9 @@
     "target_user_must_be_different_person": "Kendini takip etmeyi mi deneyeceksin cidden ya...",
     "false_type": "Hatalı bir istekte bulundunuz, siteyi test ediyorsanız bundan vazgeçmenizi tavsiye ederim!",
     "message_not_secret": "Bu mesaj gizli değil",
-    "sender_and_receiver_cannot_be_same_account": "Kendine mesaj göndermek gibi bir durum yok reiz, vazgeç",
-    "you_already_sent_invite_for_same_post": "Bu gönderiye zaten istek attın",
-    "user_already_accepted_your_invite": "Kullanıcı zaten senin isteğini kabul etti, davetlerim sayfasını kontrol et!",
+    "sender_and_receiver_cannot_be_same_account": "Bu gönderi zaten size ait xd",
+    "you_already_sent_invite_for_same_post": "Bu gönderiye daha öncesinde istek atmıştınız",
+    "user_already_accepted_your_invite": "Kullanıcı zaten isteğinizi kabul etti, davetlerim sayfasını kontrol edin",
     "invite_not_found": "Böyle bir davetiye bulunmamakta",
     "not_authorised": "Hacker mısın karrrrdeşim?",
     "already_accepted": "Bu davetiyeyi zaten kabul ettiniz"

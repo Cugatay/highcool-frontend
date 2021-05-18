@@ -94,17 +94,12 @@ export default function Post({
       });
 
       setIsInviteButtonLoading('success');
+      setMessage({ message: 'Başarılı bir şekilde istek attınız', isError: false });
       setIsInviteContentVisible(false);
     } catch (e) {
       setIsInviteButtonLoading(false);
+      setMessage({ message: e.message, isError: true });
       setIsInviteContentVisible(false);
-      if (e.message === 'sender_and_receiver_cannot_be_same_account') {
-        setMessage({ message: 'Bu post zaten size ait', isError: true });
-      } else if (e.message === 'user_already_accepted_your_invite') {
-        setMessage({ message: 'Bu postun sahibi zaten isteğinizi kabul etti!', isError: true });
-      } else {
-        setMessage({ message: 'Bir şeyler ters gitti', isError: true });
-      }
     }
   };
 
