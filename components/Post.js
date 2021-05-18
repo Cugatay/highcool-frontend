@@ -30,7 +30,7 @@ const LEARN_POST_OWNER = gql`
 `;
 
 export default function Post({
-  id, nameSurname, username, // createdAt,
+  id, username, // createdAt,
   content, likesInfo, commentsCount, tagless, createdAt, // , today,
 }) {
   const router = useRouter();
@@ -126,24 +126,25 @@ export default function Post({
         <div className={styles.user}>
           <Button
             onClick={pushUserpage}
-            className={clsx('avatar', styles.avatar)}
+            className={clsx('avatar', styles.avatar, !username && styles.secret)}
           >
-            {nameSurname ? nameSurname[0]?.toUpperCase() : '?'}
+            {username ? username[0]?.toUpperCase() : <img src="/icons/lock.svg" alt="Gizli" />}
           </Button>
           <div className={styles.info}>
-            <p onClick={pushUserpage} className={styles.nameSurname}>
-              {nameSurname || '??'}
-            </p>
             <p onClick={pushUserpage} className={styles.username}>
-              @
-              {username}
+              {username || <span>Gizli</span>}
             </p>
+            <span className={styles.timeAgo}>
+              <TimeAgo
+                date={createdAt}
+                formatter={timeAgoFormatter}
+              />
+            </span>
           </div>
         </div>
         {/* User must be able to use our app with just one hand.
         And the position of invite button is don't let that. */}
         <div className={styles.right}>
-          <span><TimeAgo date={createdAt} formatter={timeAgoFormatter} /></span>
           {
             !username && id
             && (

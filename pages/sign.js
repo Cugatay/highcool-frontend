@@ -18,18 +18,16 @@ const LOGIN_MUTATION = gql`
       token
       user {
         username
-        nameSurname
       }
     }
   }
 `;
 const REGISTER_MUTATION = gql`
-  mutation Register($username: String!, $nameSurname: String!, $email: String!, $password: String!) {
-    register(username: $username, nameSurname: $nameSurname, email: $email, password: $password) {
+  mutation Register($username: String!, $email: String!, $password: String!) {
+    register(username: $username, email: $email, password: $password) {
       token
       user {
         username
-        nameSurname
       }
     }
   }
@@ -46,7 +44,6 @@ export default function Login() {
   const [isLoading, setIsLoading] = useState(false);
 
   const usernameOrEmail = useRef(null);
-  const nameSurname = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
 
@@ -65,7 +62,6 @@ export default function Login() {
         mutation: isRegistering ? REGISTER_MUTATION : LOGIN_MUTATION,
         variables: isRegistering ? {
           username: usernameOrEmail.current.value,
-          nameSurname: nameSurname.current.value,
           email: email.current.value,
           password: password.current.value,
         }
@@ -117,16 +113,6 @@ export default function Login() {
                   toggleLogin();
                 }
               }}
-              forwardRef={nameSurname}
-              className={styles.input}
-              placeholder="Ad Soyad (Yalan serbesttir)"
-            />
-            <Input
-              onKeyPress={(e) => {
-                if (e.key === 'Enter' && !!e.target.value) {
-                  toggleLogin();
-                }
-              }}
               forwardRef={email}
               className={styles.input}
               placeholder="E-posta"
@@ -146,6 +132,13 @@ export default function Login() {
           type="password"
         />
       </div>
+
+      {isRegistering
+      && (
+      <div className={styles.info}>
+        E-posta adresiniz yalnızca hesabınızı doğrulamak için kullanılır ve hiçbir yerde paylaşılmaz
+      </div>
+      )}
 
       {formError
       && <p className={styles.error}>{formError}</p>}

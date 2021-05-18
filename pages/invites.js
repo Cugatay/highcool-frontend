@@ -14,7 +14,6 @@ query Invites($token: String!){
   invites(token: $token) {
     accepted_new {
       receiver {
-        nameSurname
         username
       }
       post {
@@ -27,13 +26,12 @@ query Invites($token: String!){
         content
       }
       sender {
-        nameSurname
+        username
       }
       content
     }
     accepted_old {
       receiver {
-        nameSurname
         username
       }
       post {
@@ -94,7 +92,6 @@ export default function Invites() {
                   {data.invites.accepted_new.map((acceptedNewInvite) => (
                     <AcceptedInvite
                       newInvite
-                      nameSurname={acceptedNewInvite.receiver.nameSurname}
                       username={acceptedNewInvite.receiver.username}
                       content={acceptedNewInvite.post.content}
                     />
@@ -111,8 +108,9 @@ export default function Invites() {
                       token={token}
                       id={incomingInvite._id}
                       postContent={incomingInvite.post.content}
-                      senderName={incomingInvite.sender.nameSurname}
+                      senderUsername={incomingInvite.sender.username}
                       inviteMessage={incomingInvite.content}
+                      createdAt={incomingInvite.createdAt}
                       data={data}
                       setData={setData}
                       setMessage={setMessage}
@@ -127,7 +125,6 @@ export default function Invites() {
                   {/* <h2>Kabul Edilmiş Postlar</h2> */}
                   {data.invites.accepted_old.map((acceptedOldInvite) => (
                     <AcceptedInvite
-                      nameSurname={acceptedOldInvite.receiver.nameSurname}
                       username={acceptedOldInvite.receiver.username}
                       content={acceptedOldInvite.post.content}
                     />
@@ -144,7 +141,6 @@ export default function Invites() {
                       className={styles.post}
                     >
                       <Post
-                      // nameSurname={post.user?.nameSurname}
                       // username={post.user?.username}
                         tagless
                         id={post._id}

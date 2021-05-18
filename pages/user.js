@@ -14,7 +14,6 @@ import ApolloClient from '../apollo-client';
 const GET_USERPAGE = gql`
     query User($token: String! $username: String!) {
       user(token: $token username: $username) {
-        nameSurname
         username
         followers {
           username
@@ -106,12 +105,11 @@ export default function UserPage() {
         ? (
           <>
             <div className={styles.top}>
-              <div className={clsx('avatar', styles.avatar)}>{data?.user?.nameSurname[0].toUpperCase()}</div>
+              <div className={clsx('avatar', styles.avatar)}>{data?.user?.username[0].toUpperCase()}</div>
               <p className={styles.username}>
                 @
                 {data?.user?.username}
               </p>
-              <p className={styles.nameSurname}>{data?.user?.nameSurname}</p>
               <Button
                 loading={isLoading}
                 onClick={toggleButtonFunction}
@@ -140,7 +138,6 @@ export default function UserPage() {
                   <Post
                     key={post._id}
                     id={post._id}
-                    nameSurname={data?.user?.nameSurname}
                     username={data?.user?.username}
                   // createdAt={post.createdAt}
                     content={post.content}

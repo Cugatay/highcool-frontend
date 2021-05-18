@@ -13,7 +13,6 @@ const GET_HOMEPAGE = gql`
     getHomepage(token: $token){
       _id
       user {
-        nameSurname
         username
       }
       content
@@ -55,7 +54,6 @@ const Home = () => {
           <Post
             key={post._id}
             id={post._id}
-            nameSurname={post.user?.nameSurname}
             username={post.user?.username}
             // createdAt={post.createdAt}
             content={post.content}

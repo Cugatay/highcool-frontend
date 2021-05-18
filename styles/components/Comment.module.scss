@@ -5,7 +5,7 @@
     align-items: flex-end;
     width: 100%;
 
-    span {
+    .timeAgo {
         color: rgba(255, 255, 255, 0.5);
     }
 }
@@ -35,7 +35,7 @@
         background-color: grey;
     }
 
-    .secret {
+    .secretAvatar {
         background-color: $frame !important;
     }
         
@@ -50,13 +50,17 @@
             display: flex;
             align-items: center;
 
-            .nameSurname {
+            .username {
                 font-size: 16px;
                 font-family: SSP-SemiBold;
                 font-stretch: normal;
                 font-style: normal;
                 line-height: normal;
                 letter-spacing: normal;
+            }
+
+            .secret {
+                color:rgba(255, 255, 255, 0.5);
             }
 
             .timeAgo {

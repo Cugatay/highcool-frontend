@@ -4,7 +4,7 @@ import styles from '../styles/components/AcceptedInvite.module.scss';
 import Button from './ui/Button';
 
 export default function AcceptedInvite({
-  newInvite, nameSurname, username, content,
+  newInvite, username, content,
 }) {
   return (
     <div className={clsx(styles.post, newInvite && styles.new)}>
@@ -14,16 +14,11 @@ export default function AcceptedInvite({
               // onClick={pushUserpage}
             className={clsx('avatar', styles.avatar)}
           >
-            {nameSurname ? nameSurname[0]?.toUpperCase() : '?'}
+            {username ? username[0]?.toUpperCase() : '?'}
           </Button>
           <div className={styles.info}>
-            <p className={styles.nameSurname}>
-              {nameSurname || '??'}
-              {/* Cagatay Kaydir */}
-            </p>
             <p className={styles.username}>
-              @
-              {username}
+              {username || <span>Gizli</span>}
             </p>
           </div>
         </div>

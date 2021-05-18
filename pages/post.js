@@ -17,7 +17,6 @@ const GET_POST = gql`
         ) {
         _id
         user {
-            nameSurname
             username
         }
         content
@@ -29,7 +28,6 @@ const GET_POST = gql`
         commentsInfo {
             comments {
             user {
-                nameSurname
                 username
             }
             content
@@ -104,7 +102,6 @@ export default function PostPage() {
               <div>
                 <Post
                   id={data.post._id}
-                  nameSurname={data.post.user?.nameSurname}
                   username={data.post.user?.username}
                   content={data.post.content}
                   createdAt={data.post.createdAt}
@@ -115,7 +112,6 @@ export default function PostPage() {
                   data?.post?.commentsInfo?.comments.map((comment) => (
                     <Comment
                       username={comment.user?.username}
-                      nameSurname={comment.user?.nameSurname}
                       content={comment.content}
                       createdAt={comment.createdAt}
                     />
@@ -130,7 +126,6 @@ export default function PostPage() {
                 {newMessages.map((newMessage) => newMessage.content && (
                   <Comment
                     username={newMessage.user ? user.username : null}
-                    nameSurname={newMessage.user ? user.nameSurname : null}
                     content={newMessage.content}
                     // createdAt={newMessage.createdAt}
                   />

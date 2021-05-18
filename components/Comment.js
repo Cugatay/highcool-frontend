@@ -11,7 +11,7 @@ import styles from '../styles/components/Comment.module.scss';
 import Button from './ui/Button';
 
 export default function Comment({
-  username, nameSurname, content, createdAt,
+  username, content, createdAt,
 }) {
   const router = useRouter();
   let user = Cookies.get('user');
@@ -34,15 +34,15 @@ export default function Comment({
 
       <div className={styles.case}>
         <div className={clsx(styles.container)}>
-          <Button onClick={pushUserpage} className={clsx('avatar', styles.avatar, user?.username !== username && styles.others, !username && styles.secret)}>{nameSurname ? nameSurname[0]?.toUpperCase() : <img src="/icons/lock.svg" alt="Gizli" />}</Button>
+          <Button onClick={pushUserpage} className={clsx('avatar', styles.avatar, user?.username !== username && styles.others, !username && styles.secretAvatar)}>{username ? username[0]?.toUpperCase() : <img src="/icons/lock.svg" alt="Gizli" />}</Button>
 
           <div className={styles.right}>
             <div className={styles.user}>
               {username !== user.username
               && (
                 <>
-                  <span onClick={pushUserpage} className={styles.nameSurname}>
-                    {nameSurname || 'Gizli'}
+                  <span onClick={pushUserpage} className={clsx(styles.username, !username && styles.secret)}>
+                    {username || 'Gizli'}
                   </span>
 
                   <span className={styles.timeAgo}>

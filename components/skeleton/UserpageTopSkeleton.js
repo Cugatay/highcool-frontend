@@ -9,7 +9,6 @@ export default function UserpageTopSkeleton() {
       <div className={styles.top}>
         <Skeleton className={clsx('avatar', styles.avatar)} />
         <Skeleton className={styles.username} />
-        <Skeleton className={styles.nameSurname} />
         <Skeleton className={styles.followButton} />
         <Skeleton className={styles.followersCount} />
       </div>

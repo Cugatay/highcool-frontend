@@ -15,7 +15,7 @@ const ACCEPT_OR_DECLINE = gql`
 `;
 
 export default function IncomingInvite({
-  id, postContent, senderName, inviteMessage, token, data, setData, setMessage,
+  id, postContent, senderUsername, inviteMessage, token, data, setData, setMessage,
 }) {
   let user = Cookies.get('user');
   user = user ? JSON.parse(user) : null;
@@ -42,13 +42,9 @@ export default function IncomingInvite({
     <div className={styles.invite}>
       <div className={styles.head}>
         <div className={styles.user}>
-          <div className={clsx('avatar', styles.avatar)}>{user.nameSurname ? user.nameSurname[0] : '?'}</div>
+          <div className={clsx('avatar', styles.avatar)}>{user.username ? user.username[0] : '?'}</div>
           <div className={styles.info}>
-            <p className={styles.nameSurname}>
-              {user.nameSurname}
-            </p>
             <p className={styles.username}>
-              @
               {user.username}
             </p>
           </div>
@@ -63,10 +59,9 @@ export default function IncomingInvite({
       <div className={styles.inviteContent}>
         <div className={styles.top}>
           <div className={styles.user}>
-            <div className={clsx('avatar', styles.avatar)}>{senderName ? senderName[0] : '?'}</div>
-            <div className={styles.nameSurname}>
-              {senderName}
-              :
+            <div className={clsx('avatar', styles.avatar)}>{senderUsername[0]}</div>
+            <div className={styles.username}>
+              {senderUsername}
             </div>
           </div>
 

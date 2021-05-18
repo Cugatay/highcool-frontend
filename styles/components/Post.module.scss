@@ -30,28 +30,30 @@
                 letter-spacing: normal;
                 margin-right: 12px;
             }
+
+            .secret {
+                background-color: $frame;
+            }
             
             .info {
                 display: flex;
                 flex-direction: column;
+                justify-content: center;
                 
-                .nameSurname {
+                .username {
                     font-size: 16px;
                     font-stretch: normal;
                     font-style: normal;
                     line-height: normal;
                     letter-spacing: normal;
+                    margin-bottom: 2px;
                 }
 
-                .username {
+                span {
                     font-size: 14px;
-                    font-weight: normal;
-                    font-stretch: normal;
-                    font-style: normal;
-                    line-height: normal;
-                    letter-spacing: normal;
-                    opacity: 0.6;
+                    color: rgba(255, 255, 255, 0.5);
                 }
+
             }
         }
 
@@ -59,10 +61,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-
-            span {
-                color: rgba(255, 255, 255, 0.5);
-            }
 
             .invite {
                 padding: 8px 16px;

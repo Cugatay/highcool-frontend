@@ -60,7 +60,7 @@ export default function Landing() {
           <div className={styles.card}>
             <h3>Maksat Gizlilikse Neden Kayıt Olurken E-postamızı Vermemiz Gerekiyor</h3>
             <p>
-              Bunu Çağatay Kaydır olarak cevaplamam gerekirse sevgili dostum, cevap çok basit: Siteyi açabilmek için sunucular satın aldım - Dolarla bide yani, bruh momento - ve o kadar uğraşmışken sitenin çökmesini istemiyorum doğal olarak. Fakat eğer e-posta doğrulamazsam bir kişi binlerce hesap açabilir. Fakat bunu engellemenin tek yolu e-posta doğrulaması mı yani? Diye sorarsan; hayır, önümde iki seçenek vardı: Telefon numarası doğrulama, e-posta doğrulama. Ve ben olsam kendi numaramı bana ne olursa olsun vermezdim :D Bunun yanısıra, e-posta çok daha güvenli olduğundan dolayı bu yolu seçtim. Yani kısaca, e-posta daha güvenli bir yol olduğundan dolayı e-posta ile kayıt oluyorsun sevgili dostum
+              Bunu Çağatay Kaydır olarak cevaplamam gerekirse sevgili dostum, cevap çok basit: Siteyi açabilmek için sunucular satın aldım - Dolarla bide yani, bruh momento - ve o kadar uğraşmışken sitenin çökmesini istemiyorum doğal olarak. Fakat eğer e-posta doğrulatmazsam bir kişi binlerce hesap açabilir. - Ama bunu engellemenin tek yolu e-posta doğrulaması mı yani? Diye sorarsan eğer hayır, önümde iki seçenek vardı: Telefon numarası doğrulama, e-posta doğrulama. Ve ben olsam kendi numaramı bana ne olursa olsun vermezdim :D Bunun yanı sıra, e-posta çok daha güvenli olduğundan dolayı bu yolu seçtim. Yani kısaca, e-posta daha güvenli bir yol olduğundan dolayı e-posta ile kayıt oluyorsun sevgili dostum
               {' <3'}
             </p>
           </div>
