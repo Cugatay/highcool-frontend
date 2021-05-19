@@ -31,23 +31,29 @@ export default function LandingHeader({
     <div className={clsx(styles.container, className)}>
       <h1>PRISOLD</h1>
       <div className={styles.buttonsContainer}>
-        <Link href="/sign?t=in">
-          <Button
-            onClick={toggleLogin}
-            className={clsx(styles.button, isDisabled === 'login' && styles.register)}
-          >
-            Giriş Yap
-          </Button>
-        </Link>
+        <div className={styles.buttons}>
+          <Link href="/sign?t=in">
+            <Button
+              onClick={toggleLogin}
+              className={clsx(styles.button, isDisabled === 'login' && styles.register)}
+            >
+              Giriş Yap
+            </Button>
+          </Link>
 
-        <Link href="/sign?t=up">
-          <Button
-            onClick={toggleRegister}
-            className={clsx(styles.button, isDisabled === 'register' && styles.register)}
-          >
-            Kayıt Ol
-          </Button>
-        </Link>
+          <Link href="/sign?t=up">
+            <Button
+              onClick={toggleRegister}
+              className={clsx(styles.button, isDisabled === 'register' && styles.register)}
+            >
+              Kayıt Ol
+            </Button>
+          </Link>
+        </div>
+
+        <a href="https://www.youtube.com/watch?v=B7nKzCRL_oo" target="_blank" rel="noreferrer">
+          <img src="/google-play-badge.png" alt="Google Play" className={styles.badge} />
+        </a>
       </div>
     </div>
   );

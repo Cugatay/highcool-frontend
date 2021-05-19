@@ -1,8 +1,8 @@
 @import '../variables';
 
 .container {
-    margin-bottom: 40px;
     margin-top: 20px;
+    margin-bottom: -20px;
 
     h1 {
         font-size: 52px;
@@ -20,21 +20,37 @@
     .buttonsContainer {
         margin: 0;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
 
-        .button {
-            width: 140px;
-            height: 48px;
-            background-color: $secondary;
-        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 8px;
 
-        button:first-child {
-            margin-right: 10px;
-        }
+            .button {
+                width: 140px;
+                height: 48px;
+                background-color: $secondary;
+            }
 
-        .register {
-            background-color: $primary;
+            button:first-child {
+                margin-right: 10px;
+            }
+
+            .register {
+                background-color: $primary;
+            }
+        }
+        .badge {
+            width: 180px;
+            height: 68px;
+            img {
+                width: 100%;
+                height: 100%;
+            }
         }
     }
 }
