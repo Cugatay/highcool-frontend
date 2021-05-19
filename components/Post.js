@@ -31,7 +31,7 @@ const LEARN_POST_OWNER = gql`
 
 export default function Post({
   id, username, // createdAt,
-  content, likesInfo, commentsCount, tagless, createdAt, // , today,
+  content, likesInfo, commentsCount, tagless, createdAt, truncate, // , today,
 }) {
   const router = useRouter();
 
@@ -175,7 +175,7 @@ export default function Post({
       }
       </div>
 
-      <div className={styles.content}>
+      <div className={clsx(styles.content, truncate && styles.truncate)}>
         {content}
       </div>
 

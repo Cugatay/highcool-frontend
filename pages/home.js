@@ -61,6 +61,7 @@ const Home = () => {
             likesInfo={post.likesInfo}
             // today={today}
             commentsCount={post.commentsInfo?.count}
+            truncate
           />
         )) : (
           <div>

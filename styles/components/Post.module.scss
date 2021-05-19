@@ -251,4 +251,12 @@
     .content {
         font-family: SSP-SemiBold;
     }
+
+    .truncate {
+        -webkit-line-clamp: 12;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        display: -webkit-box;
+        width: 100%;
+    }
 }
