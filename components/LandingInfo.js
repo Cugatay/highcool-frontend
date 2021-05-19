@@ -27,7 +27,7 @@ export default function LandingInfo({
                 }
               </>
             )
-              : (
+              : hiddenInfo && (
                 <Button
                   className={styles.moreButton}
                   onClick={() => setIsShowing(true)}
