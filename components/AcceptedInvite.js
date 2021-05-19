@@ -1,5 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
+import Link from 'next/link';
 import styles from '../styles/components/AcceptedInvite.module.scss';
 import Button from './ui/Button';
 
@@ -17,9 +18,11 @@ export default function AcceptedInvite({
             {username ? username[0]?.toUpperCase() : '?'}
           </Button>
           <div className={styles.info}>
-            <p className={styles.username}>
-              {username || <span>Gizli</span>}
-            </p>
+            <Link href={`/user?u=${username}`}>
+              <p className={styles.username}>
+                {username || <span>Gizli</span>}
+              </p>
+            </Link>
           </div>
         </div>
         {/* User must be able to use our app with just one hand.

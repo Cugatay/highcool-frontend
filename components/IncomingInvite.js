@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import React, { useState } from 'react';
 import Cookies from 'js-cookie';
 import { gql } from '@apollo/client';
+import Link from 'next/link';
 import styles from '../styles/components/IncomingInvite.module.scss';
 import Button from './ui/Button';
 import ApolloClient from '../apollo-client';
@@ -44,9 +45,11 @@ export default function IncomingInvite({
         <div className={styles.user}>
           <div className={clsx('avatar', styles.avatar)}>{user.username ? user.username[0] : '?'}</div>
           <div className={styles.info}>
-            <p className={styles.username}>
-              {user.username}
-            </p>
+            <Link href={`/user?u=${user.username}`}>
+              <p className={styles.username}>
+                {user.username}
+              </p>
+            </Link>
           </div>
         </div>
 

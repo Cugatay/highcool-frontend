@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
 import { gql } from '@apollo/client';
 import Cookies from 'js-cookie';
@@ -44,6 +44,18 @@ export default function MessageInput({
       },
     });
   };
+
+  useEffect(() => {
+    const listenerFunction = () => {
+      const limit = document.body.offsetHeight - window.innerHeight;
+      if (limit - window.scrollY < 300) {
+        setTimeout(() => {
+          window.scrollTo(0, document.body.scrollHeight);
+        }, 200);
+      }
+    };
+    messageRef.current.addEventListener('focus', listenerFunction);
+  }, []);
 
   return (
     <div className={styles.container}>

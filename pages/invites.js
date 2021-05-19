@@ -146,7 +146,7 @@ export default function Invites() {
                         id={post._id}
                         content={post.content}
                         createdAt={post.createdAt}
-                        likesInfo={{ likesRate: 15, isLiked: false }}
+                        likesInfo={post.likesInfo}
                         commentsCount={3}
                       />
                     </div>

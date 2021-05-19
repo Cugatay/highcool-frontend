@@ -107,7 +107,6 @@ export default function UserPage() {
             <div className={styles.top}>
               <div className={clsx('avatar', styles.avatar)}>{data?.user?.username[0].toUpperCase()}</div>
               <p className={styles.username}>
-                @
                 {data?.user?.username}
               </p>
               <Button
