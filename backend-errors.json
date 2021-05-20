@@ -18,5 +18,6 @@
     "user_already_accepted_your_invite": "Kullanıcı zaten isteğinizi kabul etti, davetlerim sayfasını kontrol edin",
     "invite_not_found": "Böyle bir davetiye bulunmamakta",
     "not_authorised": "Hacker mısın karrrrdeşim?",
-    "already_accepted": "Bu davetiyeyi zaten kabul ettiniz"
+    "already_accepted": "Bu davetiyeyi zaten kabul ettiniz",
+    "email_is_not_valid": "E-posta geçerli değil"
 }

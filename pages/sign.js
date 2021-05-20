@@ -11,6 +11,7 @@ import Input from '../components/ui/Input';
 import Button from '../components/ui/Button';
 import ApolloClient from '../apollo-client';
 import UserContext from '../context/UserContext';
+import errors from '../backend-errors.json';
 
 const LOGIN_MUTATION = gql`
   mutation Login($usernameOrEmail: String!, $password: String!) {
@@ -141,7 +142,7 @@ export default function Login() {
       )}
 
       {formError
-      && <p className={styles.error}>{formError}</p>}
+      && <p className={styles.error}>{errors[formError]}</p>}
 
       <Button
         onClick={toggleLogin}
