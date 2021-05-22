@@ -33,7 +33,7 @@ const Home = () => {
   const token = Cookies.get('token');
   const { error, data } = useQuery(GET_HOMEPAGE, {
     variables: { token },
-    pollInterval: 5000,
+    // pollInterval: 5000,
   });
 
   useEffect(() => {
@@ -47,6 +47,7 @@ const Home = () => {
       }
     }
   }, []);
+
   const popularPosts = [];
   const otherPosts = [];
 
@@ -60,7 +61,6 @@ const Home = () => {
     return '';
   });
 
-  // console.log(popularPosts);
   return (
     <Layout>
       {
