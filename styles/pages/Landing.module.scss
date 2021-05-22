@@ -35,12 +35,12 @@
         margin-top: -40px;
         margin-bottom: 20px;
         width: 100%;
-        // padding: 0 8px;
+        // position: relative;
 
         .questions {
             display: flex;
             width: calc(100% + 16px);
-            position: relative;
+            // width: 100%;
 
             &:after {
                 content: "a";
@@ -53,10 +53,16 @@
             overflow-x: auto;
             overflow-y: hidden;
 
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+
             .question {
                 min-width: max-content;
                 padding: 12px;
-                // height: 48;
                 font-size: 18px;
                 font-family: SSP-SemiBold;
                 background-color: $secondary;
@@ -71,35 +77,37 @@
                 font-family: SSP-Bold;
             }
 
-            .arrowContainer {
-                height: 48px;
-                position: absolute;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                pointer-events: none;
-                right: 0;
-
-                .arrow {
-                    width: 44px;
-                    height: 44px;
-                    // margin-right: 4px;
-                    border-radius: 50%;
-                    background-color: white;
-                    // border: 1px solid $frame;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    color: black;
-                    transition: opacity 0.1s
-                    // opacity: 1;
-                }
-
-                .hidden {
-                    opacity: 0;
-                }
-            }
         }
+
+        // .arrowContainer {
+        //     height: 100%;
+        //     position: absolute;
+        //     display: flex;
+        //     justify-content: center;
+        //     align-items: flex-end;
+        //     pointer-events: none;
+        //     right: 0px;
+        //     bottom: -6px;
+
+        //     .arrow {
+        //         width: 60px;
+        //         height: 60px;
+        //         // margin-right: 4px;
+        //         border-radius: 50%;
+        //         background-color: white;
+        //         // border: 1px solid $frame;
+        //         display: flex;
+        //         justify-content: center;
+        //         align-items: center;
+        //         color: black;
+        //         transition: opacity 0.1s
+        //         // opacity: 1;
+        //     }
+
+        //     .hidden {
+        //         opacity: 0;
+        //     }
+        // }
     }
 
     .grid {

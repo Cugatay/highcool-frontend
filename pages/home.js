@@ -53,7 +53,7 @@ const Home = () => {
 
   data?.getHomepage.map((post) => {
     if ((post.likesInfo.likesRate >= 3 || post.commentsInfo.count > 10)
-    && popularPosts.length <= 5) {
+    && popularPosts.length <= 1) {
       popularPosts.push(post);
     } else {
       otherPosts.push(post);
