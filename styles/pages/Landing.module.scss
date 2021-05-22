@@ -31,6 +31,77 @@
         Bitstream Vera Sans Mono, Courier New, monospace;
     }
 
+    .sss {
+        margin-top: -40px;
+        margin-bottom: 20px;
+        width: 100%;
+        // padding: 0 8px;
+
+        .questions {
+            display: flex;
+            width: calc(100% + 16px);
+            position: relative;
+
+            &:after {
+                content: "a";
+                opacity: 0;
+                width: 16px;
+                height: 1px;
+                background-color: red;
+            }
+            // height: 40px;
+            overflow-x: auto;
+            overflow-y: hidden;
+
+            .question {
+                min-width: max-content;
+                padding: 12px;
+                // height: 48;
+                font-size: 18px;
+                font-family: SSP-SemiBold;
+                background-color: $secondary;
+                border-radius: 16px;
+                margin-right: 12px;
+                transition: background-color 0.3s, color 0.3s, font-family 0.3s;
+            }
+
+            .selected {
+                background-color: white;
+                color: black;
+                font-family: SSP-Bold;
+            }
+
+            .arrowContainer {
+                height: 48px;
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                pointer-events: none;
+                right: 0;
+
+                .arrow {
+                    width: 44px;
+                    height: 44px;
+                    // margin-right: 4px;
+                    border-radius: 50%;
+                    background-color: white;
+                    // border: 1px solid $frame;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: black;
+                    transition: opacity 0.1s
+                    // opacity: 1;
+                }
+
+                .hidden {
+                    opacity: 0;
+                }
+            }
+        }
+    }
+
     .grid {
         display: flex;
         flex-direction: column;
@@ -40,10 +111,6 @@
         justify-content: center;
         max-width: 800px;
         margin-top: 3rem;
-
-        & > :first-child {
-            margin-top: -20px;
-        }
     }
 
     .card {

@@ -33,7 +33,7 @@ const Home = () => {
   const token = Cookies.get('token');
   const { error, data } = useQuery(GET_HOMEPAGE, {
     variables: { token },
-    // pollInterval: 5000,
+    pollInterval: 5000,
   });
 
   useEffect(() => {
@@ -47,10 +47,24 @@ const Home = () => {
       }
     }
   }, []);
+  const popularPosts = [];
+  const otherPosts = [];
+
+  data?.getHomepage.map((post) => {
+    if ((post.likesInfo.likesRate >= 3 || post.commentsInfo.count > 10)
+    && popularPosts.length <= 5) {
+      popularPosts.push(post);
+    } else {
+      otherPosts.push(post);
+    }
+    return '';
+  });
+
+  // console.log(popularPosts);
   return (
     <Layout>
       {
-        data ? data.getHomepage.map((post) => (
+        data ? [...popularPosts, ...otherPosts].map((post) => (
           <Post
             key={post._id}
             id={post._id}

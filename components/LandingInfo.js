@@ -6,9 +6,10 @@ export default function LandingInfo({
   title, info, hiddenInfo, github,
 }) {
   const [isShowing, setIsShowing] = useState(false);
+  const titleId = title.replaceAll(' ', '-');
 
   return (
-    <div className={styles.card}>
+    <div id={titleId} className={styles.card}>
       <h3>{title}</h3>
 
       <p>{info}</p>

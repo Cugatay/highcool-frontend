@@ -4,6 +4,7 @@ import Cookies from 'js-cookie';
 import styles from '../styles/pages/Landing.module.scss';
 import LandingHeader from '../components/LandingHeader';
 import LandingInfo from '../components/LandingInfo';
+import LandingQList from '../components/LandingQList';
 
 export default function Landing() {
   const router = useRouter();
@@ -20,6 +21,7 @@ export default function Landing() {
         <LandingHeader />
         <div className={styles.grid}>
           {/* <iframe src="https://www.youtube.com/embed/sUr4GBzEqNs" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen /> */}
+          <LandingQList questions={['Bu Site Ne Ulan?', 'Sitede Neler Yapılıyor?', 'Tam Gizlilik Mümkün Mü?', 'Tam Olarak Nasıl Çalışıyor?', 'Bizim Bilgilerimizin Gerçekten Gizlendiğini Nerden Bilebiliriz?', 'Maksat Gizlilikse Neden Kayıt Olurken E-postamızı Vermemiz Gerekiyor']} />
 
           <LandingInfo
             title="Bu Site Ne Ulan?"
