@@ -64,7 +64,7 @@ const Home = () => {
   return (
     <Layout>
       {
-        data ? data.map((post) => (
+        data ? data.getHomepage.map((post) => (
           <Post
             key={post._id}
             id={post._id}
