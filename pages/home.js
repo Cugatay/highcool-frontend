@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 // import Cookies from 'cookies';
 import Cookies from 'js-cookie';
 import { useQuery, gql } from '@apollo/client';
@@ -31,12 +31,10 @@ const GET_HOMEPAGE = gql`
 const Home = () => {
   const router = useRouter();
   const token = Cookies.get('token');
-  const { error, data: comingData } = useQuery(GET_HOMEPAGE, {
+  const { error, data } = useQuery(GET_HOMEPAGE, {
     variables: { token },
     // pollInterval: 5000,
   });
-
-  const [data, setData] = useState(null);
 
   useEffect(() => {
     if (error) {
@@ -47,30 +45,26 @@ const Home = () => {
         Cookies.set('user', '');
         router?.push('/');
       }
-
-      return;
     }
+  }, []);
 
-    const popularPosts = [];
-    const otherPosts = [];
+  // const popularPosts = [];
+  // const otherPosts = [];
 
-    comingData?.getHomepage.map((post) => {
-      if ((post.likesInfo.likesRate >= 3 || post.commentsInfo.count > 10)
-      && popularPosts.length <= 1) {
-        popularPosts.push(post);
-      } else {
-        otherPosts.push(post);
-      }
-      return '';
-    });
-
-    setData([...popularPosts, ...otherPosts]);
-  }, [data]);
+  // data?.getHomepage.map((post) => {
+  //   if ((post.likesInfo.likesRate >= 3 || post.commentsInfo.count > 10)
+  //   && popularPosts.length <= 1) {
+  //     popularPosts.push(post);
+  //   } else {
+  //     otherPosts.push(post);
+  //   }
+  //   return '';
+  // });
 
   return (
     <Layout>
       {
-        comingData ? data.map((post) => (
+        data ? data.map((post) => (
           <Post
             key={post._id}
             id={post._id}
