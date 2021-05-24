@@ -21,6 +21,9 @@ export default function Landing() {
         <LandingHeader />
         <div className={styles.grid}>
           {/* <iframe src="https://www.youtube.com/embed/sUr4GBzEqNs" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen /> */}
+
+          {/* <img src="/screenshot.png" alt="Screenshot" className={styles.screenshot} /> */}
+
           <LandingQList questions={['Bu Site Ne Ulan?', 'Sitede Neler Yapılıyor?', 'Tam Gizlilik Mümkün Mü?', 'Tam Olarak Nasıl Çalışıyor?', 'Bizim Bilgilerimizin Gerçekten Gizlendiğini Nerden Bilebiliriz?', 'Maksat Gizlilikse Neden Kayıt Olurken E-postamızı Vermemiz Gerekiyor']} />
 
           <LandingInfo
