@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import clsx from 'clsx';
 import React, { useRef, useState } from 'react';
-import styles from '../styles/pages/Landing.module.scss';
+import styles from '../styles/pages/Sss.module.scss';
 
 export default function LandingQList({ questions }) {
   const [selected, setSelected] = useState(questions[0]);
@@ -17,7 +17,7 @@ export default function LandingQList({ questions }) {
 
   return (
     <div className={styles.sss}>
-      <h2>S.S.S (Sık Sorulan Sorular)</h2>
+      {/* <h2>S.S.S (Sık Sorulan Sorular)</h2> */}
 
       <div ref={scrollableAreaRef} className={styles.questions}>
         {questions.map((q) => (

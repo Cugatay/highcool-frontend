@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import '../styles/globals.scss';
+import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 import { ApolloClient, InMemoryCache } from '@apollo/client';
 import { ApolloProvider } from '@apollo/client/react';
 import UserContext from '../context/UserContext';

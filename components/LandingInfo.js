@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Button from './ui/Button';
-import styles from '../styles/pages/Landing.module.scss';
+import styles from '../styles/pages/Sss.module.scss';
 
 export default function LandingInfo({
   title, info, hiddenInfo, github,

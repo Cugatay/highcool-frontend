@@ -29,7 +29,9 @@ export default function LandingHeader({
   };
   return (
     <div className={clsx(styles.container, className)}>
-      <h1>PRISOLD</h1>
+      <Link href="/">
+        <h1>PRISOLD</h1>
+      </Link>
       <div className={styles.buttonsContainer}>
         <div className={styles.buttons}>
           <Link href="/sign?t=in">
