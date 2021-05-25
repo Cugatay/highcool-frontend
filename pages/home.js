@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 // import Cookies from 'cookies';
 import Cookies from 'js-cookie';
 import { useQuery, gql } from '@apollo/client';
@@ -36,6 +36,8 @@ const Home = () => {
     // pollInterval: 5000,
   });
 
+  const [sliceNumber, setSliceNumber] = useState(10);
+
   useEffect(() => {
     if (error) {
       if (error.message === 'activate_email') {
@@ -46,7 +48,22 @@ const Home = () => {
         router?.push('/');
       }
     }
-  }, []);
+    const scrollListener = () => {
+      const limit = document.body.offsetHeight - window.innerHeight;
+      // console.log(sliceNumber + 10);
+      if (limit - window.scrollY < 700 && sliceNumber <= data.getHomepage.length) {
+        // console.log('hey');
+        // console.log(sliceNumber);
+        setSliceNumber(sliceNumber + 10);
+      }
+
+      // console.log(data);
+    };
+
+    if (data) {
+      window.addEventListener('scroll', scrollListener);
+    }
+  }, [data]);
 
   const popularPosts = [];
   const otherPosts = [];
@@ -64,7 +81,7 @@ const Home = () => {
   return (
     <Layout>
       {
-       data ? [...popularPosts, ...otherPosts].map((post) => (
+       data ? [...popularPosts, ...otherPosts].slice(0, sliceNumber).map((post) => (
          <Post
            key={post._id}
            id={post._id}
