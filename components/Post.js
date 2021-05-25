@@ -5,9 +5,9 @@ import React, { useRef, useState } from 'react';
 import { gql } from '@apollo/client';
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
-// import TimeAgo from 'react-timeago';
-// import turkishStrings from 'react-timeago/lib/language-strings/tr';
-// import buildFormatter from 'react-timeago/lib/formatters/buildFormatter';
+import TimeAgo from 'react-timeago';
+import turkishStrings from 'react-timeago/lib/language-strings/tr';
+import buildFormatter from 'react-timeago/lib/formatters/buildFormatter';
 import styles from '../styles/components/Post.module.scss';
 import Button from './ui/Button';
 import ApolloClient from '../apollo-client';
@@ -31,11 +31,11 @@ const LEARN_POST_OWNER = gql`
 
 export default function Post({
   id, username, // createdAt,
-  content, likesInfo, commentsCount, tagless, /* createdAt, */ truncate, // , today,
+  content, likesInfo, commentsCount, tagless, createdAt, truncate, // , today,
 }) {
   const router = useRouter();
 
-  // const timeAgoFormatter = buildFormatter(turkishStrings);
+  const timeAgoFormatter = buildFormatter(turkishStrings);
 
   const token = Cookies.get('token');
 
@@ -129,12 +129,12 @@ export default function Post({
             <p onClick={pushUserpage} className={styles.username}>
               {username || <span>Gizli</span>}
             </p>
-            {/* <span className={styles.timeAgo}>
+            <span className={styles.timeAgo}>
               <TimeAgo
                 date={createdAt}
                 formatter={timeAgoFormatter}
               />
-            </span> */}
+            </span>
           </div>
         </div>
         {/* User must be able to use our app with just one hand.
