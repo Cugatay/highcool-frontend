@@ -63,6 +63,7 @@ export default function Landing() {
         showIndicators={false}
         showArrows={false}
         infiniteLoop
+        showThumbs={false}
         // onChange={(i) => {
         //   console.log(i);
         // }}
