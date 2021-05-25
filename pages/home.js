@@ -48,22 +48,9 @@ const Home = () => {
     }
   }, []);
 
-  // const popularPosts = [];
-  // const otherPosts = [];
-
-  // data?.getHomepage.map((post) => {
-  //   if ((post.likesInfo.likesRate >= 3 || post.commentsInfo.count > 10)
-  //   && popularPosts.length <= 1) {
-  //     popularPosts.push(post);
-  //   } else {
-  //     otherPosts.push(post);
-  //   }
-  //   return '';
-  // });
-
   return (
     <Layout>
-      {
+      {/* {
         data ? data.getHomepage.map((post) => (
           <Post
             key={post._id}
@@ -84,9 +71,109 @@ const Home = () => {
             <PostSkeleton />
           </div>
         )
-      }
+      } */}
+      <div>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+        <p>lasdkjflk</p>
+      </div>
     </Layout>
   );
 };
 
 export default Home;
+
+// const popularPosts = [];
+// const otherPosts = [];
+
+// data?.getHomepage.map((post) => {
+//   if ((post.likesInfo.likesRate >= 3 || post.commentsInfo.count > 10)
+//   && popularPosts.length <= 1) {
+//     popularPosts.push(post);
+//   } else {
+//     otherPosts.push(post);
+//   }
+//   return '';
+// });
