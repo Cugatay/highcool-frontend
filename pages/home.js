@@ -64,11 +64,11 @@ const Home = () => {
   return (
     <Layout>
       {
-       data ? data.getHomepage.map((post) => (
+       data ? data.getHomepage.slice(0, 4).map((post) => (
          <Post
            key={post._id}
            id={post._id}
-           username={data?.user?.username}
+           username={post.user?.username}
           // createdAt={post.createdAt}
            content={post.content}
            createdAt={post.createdAt}
