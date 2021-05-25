@@ -48,23 +48,23 @@ const Home = () => {
     }
   }, []);
 
-  // const popularPosts = [];
-  // const otherPosts = [];
+  const popularPosts = [];
+  const otherPosts = [];
 
-  // data?.getHomepage.map((post) => {
-  //   if ((post.likesInfo.likesRate >= 3 || post.commentsInfo.count > 10)
-  //   && popularPosts.length <= 1) {
-  //     popularPosts.push(post);
-  //   } else {
-  //     otherPosts.push(post);
-  //   }
-  //   return '';
-  // });
+  data?.getHomepage.map((post) => {
+    if ((post.likesInfo.likesRate >= 3 || post.commentsInfo.count > 10)
+    && popularPosts.length <= 1) {
+      popularPosts.push(post);
+    } else {
+      otherPosts.push(post);
+    }
+    return '';
+  });
 
   return (
     <Layout>
       {
-       data ? data.getHomepage.map((post) => (
+       data ? [...popularPosts, ...otherPosts].map((post) => (
          <Post
            key={post._id}
            id={post._id}
