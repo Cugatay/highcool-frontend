@@ -64,7 +64,7 @@ const Home = () => {
   return (
     <Layout>
       {
-       data ? data.getHomepage.slice(0, 4).map((post) => (
+       data ? data.getHomepage.map((post) => (
          <Post
            key={post._id}
            id={post._id}

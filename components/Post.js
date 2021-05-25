@@ -129,12 +129,12 @@ export default function Post({
             <p onClick={pushUserpage} className={styles.username}>
               {username || <span>Gizli</span>}
             </p>
-            <span className={styles.timeAgo}>
+            {/* <span className={styles.timeAgo}>
               <TimeAgo
                 date={createdAt}
                 formatter={timeAgoFormatter}
               />
-            </span>
+            </span> */}
           </div>
         </div>
         {/* User must be able to use our app with just one hand.
