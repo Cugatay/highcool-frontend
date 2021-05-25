@@ -48,132 +48,60 @@ const Home = () => {
     }
   }, []);
 
+  // const popularPosts = [];
+  // const otherPosts = [];
+
+  // data?.getHomepage.map((post) => {
+  //   if ((post.likesInfo.likesRate >= 3 || post.commentsInfo.count > 10)
+  //   && popularPosts.length <= 1) {
+  //     popularPosts.push(post);
+  //   } else {
+  //     otherPosts.push(post);
+  //   }
+  //   return '';
+  // });
+
   return (
     <Layout>
-      {/* {
-        data ? data.getHomepage.map((post) => (
-          <Post
-            key={post._id}
-            id={post._id}
-            username={post.user?.username}
-            // createdAt={post.createdAt}
-            content={post.content}
-            createdAt={post.createdAt}
-            likesInfo={post.likesInfo}
-            // today={today}
-            commentsCount={post.commentsInfo?.count}
-            truncate
-          />
-        )) : (
-          <div>
-            <PostSkeleton />
-            <PostSkeleton />
-            <PostSkeleton />
-          </div>
-        )
-      } */}
-      <div>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-        <p>lasdkjflk</p>
-      </div>
+      {
+       data ? data.getHomepage.map((post) => (
+         <Post
+           key={post._id}
+           id={post._id}
+           username={data?.user?.username}
+          // createdAt={post.createdAt}
+           content={post.content}
+           createdAt={post.createdAt}
+           likesInfo={post.likesInfo}
+          // today={today}
+           commentsCount={post.commentsInfo?.count}
+         />
+       ))
+         : (
+           <div>
+             <PostSkeleton />
+             <PostSkeleton />
+             <PostSkeleton />
+           </div>
+         )
+      }
     </Layout>
   );
 };
 
 export default Home;
 
-// const popularPosts = [];
-// const otherPosts = [];
-
-// data?.getHomepage.map((post) => {
-//   if ((post.likesInfo.likesRate >= 3 || post.commentsInfo.count > 10)
-//   && popularPosts.length <= 1) {
-//     popularPosts.push(post);
-//   } else {
-//     otherPosts.push(post);
-//   }
-//   return '';
-// });
+// data ? data.getHomepage.map((post) => (
+//   <Post
+//     key={post._id}
+//     id={post._id}
+//     username={post.user?.username}
+//     // createdAt={post.createdAt}
+//     content={post.content}
+//     createdAt={post.createdAt}
+//     likesInfo={post.likesInfo}
+//     // today={today}
+//     commentsCount={post.commentsInfo?.count}
+//     truncate
+//   />
+// ))
