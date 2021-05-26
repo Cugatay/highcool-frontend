@@ -6,6 +6,7 @@ import { Carousel } from 'react-responsive-carousel';
 import Link from 'next/link';
 import LandingHeader from '../components/LandingHeader';
 import styles from '../styles/pages/Landing.module.scss';
+import useIsMobile from '../hooks/useIsMobile';
 
 export default function Landing() {
   const router = useRouter();
@@ -37,14 +38,16 @@ export default function Landing() {
     </span>,
     <span>Aklında Düşünceler Varsa, Prisold Bu Fikirleri Paylaşabilmen İçin Mükemmel Bir Platform</span>,
     <span>Çünkü Bu Platform Tamamen Gizlilik Üzerine Kurulmuştur ve Açık Kaynak Kodludur</span>,
-    <span>Açık Kaynak Kodlu Platformlar Kar Amacı Gütmezler ve Kodları İnsanlar Tarafından İncelenebildiği İçin Verileri Güvendedir</span>,
+    <span>Açık Kaynak Kodlu Platformlar Kar Amacı Gütmezler ve Kodları İnsanlar Tarafından İncelenebildiği Güvenlidirler</span>,
     <span>
       Güvenlik İle İlgili Sorularınız
       <Link href="/sss"> S.S.S Sayfamızda </Link>
-      Cevaplanmıştır, Ayrıcı Kaynak Kodumuza Buradan Ulaşabilirsiniz
+      Cevaplanmıştır, Ayrıcı Kaynak Kodumuza
+      <Link href="https://github.com/Cugatay/highcool-backend"> Buradan </Link>
+      Ulaşabilirsiniz
     </span>,
     <span>Aklındaki Fikirleri İnsanlarla Güvenli Bir Şekilde Paylaşamya Bugün Başlayabilirsin</span>,
-    <span>Kayıt Ol ve Bir Prisold Olarak Orta Dünyayı Kurtar! Unutma, Orta Dünyanın Kaderi Senin Ellerinde</span>,
+    <span>Kayıt Ol ve Bir Prisolder Olarak Orta Dünyayı Kurtar! Unutma, Orta Dünyanın Kaderi Senin Ellerinde</span>,
   ];
 
   useEffect(() => {
@@ -52,6 +55,10 @@ export default function Landing() {
       router.push('/home');
     }
   }, []);
+
+  const isMobile = useIsMobile();
+  console.log(isMobile);
+
   return (
     <div className={styles.container}>
       <LandingHeader />
@@ -61,9 +68,11 @@ export default function Landing() {
         showStatus={false}
         autoPlay
         showIndicators={false}
-        showArrows={false}
-        infiniteLoop
+        showArrows={!isMobile}
+        // infiniteLoop
         showThumbs={false}
+        interval={5000}
+        swipeable
         // onChange={(i) => {
         //   console.log(i);
         // }}

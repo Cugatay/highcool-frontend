@@ -32,6 +32,7 @@ export default function LandingHeader({
       <Link href="/">
         <h1>PRISOLD</h1>
       </Link>
+      {/* <p>Kendini Gizle, İstediklerini Söyle</p> */}
       <div className={styles.buttonsContainer}>
         <div className={styles.buttons}>
           <Link href="/sign?t=in">

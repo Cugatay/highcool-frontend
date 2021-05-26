@@ -13,8 +13,14 @@
         line-height: normal;
         letter-spacing: normal;
         text-align: center;
-        margin-top: 0;
-        margin-bottom: 12px;
+        margin: 0;
+    }
+
+    p {
+        // background-color: red;
+        text-align: center;
+        font-size: 18px;
+        margin-bottom: 24px;
     }
 
     .buttonsContainer {
