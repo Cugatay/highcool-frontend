@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 // import Cookies from 'cookies';
 import Cookies from 'js-cookie';
 import { useQuery, gql } from '@apollo/client';
@@ -35,6 +35,8 @@ const Home = () => {
     variables: { token },
     // pollInterval: 5000,
   });
+  const { queryPostId } = router.query;
+  const [queryPost, setQueryPost] = useState(null);
 
   const [sliceNumber, setSliceNumber] = useState(10);
 
@@ -50,20 +52,19 @@ const Home = () => {
     }
     const scrollListener = () => {
       const limit = document.body.offsetHeight - window.innerHeight;
-      // console.log(sliceNumber + 10);
       if (limit - window.scrollY < 700 && sliceNumber <= data.getHomepage.length) {
-        // console.log('hey');
-        // console.log(sliceNumber);
         setSliceNumber(sliceNumber + 10);
       }
-
-      // console.log(data);
     };
 
     if (data) {
       window.addEventListener('scroll', scrollListener);
     }
-  }, [data]);
+
+    if (data && queryPostId) {
+      setQueryPost(data.getHomepage.find((post) => post._id === queryPostId));
+    }
+  }, [data, queryPostId]);
 
   const popularPosts = [];
   const otherPosts = [];
@@ -81,18 +82,37 @@ const Home = () => {
   return (
     <Layout>
       {
-       data ? [...popularPosts, ...otherPosts].slice(0, sliceNumber).map((post) => (
+        queryPost
+
+         && (
          <Post
-           key={post._id}
-           id={post._id}
-           username={post.user?.username}
+           id={queryPost._id}
+           username={queryPost.user?.username}
           // createdAt={post.createdAt}
-           content={post.content}
-           createdAt={post.createdAt}
-           likesInfo={post.likesInfo}
+           content={queryPost.content}
+           createdAt={queryPost.createdAt}
+           likesInfo={queryPost.likesInfo}
           // today={today}
-           commentsCount={post.commentsInfo?.count}
+           commentsCount={queryPost.commentsInfo?.count}
          />
+         )
+      }
+
+      {
+       data ? [...popularPosts, ...otherPosts].slice(0, sliceNumber).map((post) => (
+         post._id !== queryPostId ? (
+           <Post
+             key={post._id}
+             id={post._id}
+             username={post.user?.username}
+          // createdAt={post.createdAt}
+             content={post.content}
+             createdAt={post.createdAt}
+             likesInfo={post.likesInfo}
+          // today={today}
+             commentsCount={post.commentsInfo?.count}
+           />
+         ) : null
        ))
          : (
            <div>

@@ -5,9 +5,7 @@ import React, { useRef, useState } from 'react';
 import { gql } from '@apollo/client';
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
-import TimeAgo from 'react-timeago';
-import turkishStrings from 'react-timeago/lib/language-strings/tr';
-import buildFormatter from 'react-timeago/lib/formatters/buildFormatter';
+import moment from 'moment';
 import styles from '../styles/components/Post.module.scss';
 import Button from './ui/Button';
 import ApolloClient from '../apollo-client';
@@ -34,8 +32,6 @@ export default function Post({
   content, likesInfo, commentsCount, tagless, createdAt, truncate, // , today,
 }) {
   const router = useRouter();
-
-  const timeAgoFormatter = buildFormatter(turkishStrings);
 
   const token = Cookies.get('token');
 
@@ -103,6 +99,8 @@ export default function Post({
     }
   };
 
+  const m = moment(createdAt).locale('tr');
+
   return (
     <div
       className={clsx(styles.post,
@@ -130,10 +128,7 @@ export default function Post({
               {username || <span>Gizli</span>}
             </p>
             <span className={styles.timeAgo}>
-              <TimeAgo
-                date={createdAt}
-                formatter={timeAgoFormatter}
-              />
+              {m.fromNow()}
             </span>
           </div>
         </div>

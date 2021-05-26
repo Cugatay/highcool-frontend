@@ -4,9 +4,7 @@ import clsx from 'clsx';
 import React from 'react';
 import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
-import TimeAgo from 'react-timeago';
-import turkishStrings from 'react-timeago/lib/language-strings/tr';
-import buildFormatter from 'react-timeago/lib/formatters/buildFormatter';
+import moment from 'moment';
 import styles from '../styles/components/Comment.module.scss';
 import Button from './ui/Button';
 
@@ -23,7 +21,7 @@ export default function Comment({
     }
   };
 
-  const timeAgoFormatter = buildFormatter(turkishStrings);
+  const m = moment(createdAt).locale('tr');
 
   return (
     <div className={user?.username === username && styles.primary}>
@@ -41,12 +39,16 @@ export default function Comment({
               {username !== user.username
               && (
                 <>
-                  <span onClick={pushUserpage} className={clsx(styles.username, !username && styles.secret)}>
+                  <span
+                    onClick={pushUserpage}
+                    className={clsx(styles.username, !username && styles.secret)}
+                  >
                     {username || 'Gizli'}
                   </span>
 
                   <span className={styles.timeAgo}>
-                    <TimeAgo date={createdAt} formatter={timeAgoFormatter} />
+                    {/* <TimeAgo date={createdAt} formatter={timeAgoFormatter} /> */}
+                    {m.fromNow()}
                   </span>
                 </>
               )}
