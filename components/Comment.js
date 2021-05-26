@@ -47,7 +47,6 @@ export default function Comment({
                   </span>
 
                   <span className={styles.timeAgo}>
-                    {/* <TimeAgo date={createdAt} formatter={timeAgoFormatter} /> */}
                     {m.fromNow()}
                   </span>
                 </>
