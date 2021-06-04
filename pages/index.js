@@ -36,7 +36,7 @@ export default function Landing() {
       <Link href="/sss"> S.S.S (Sık Sorulan Sorular) Sayfasını </Link>
       Ziyaret Edebilirsin
     </span>,
-    <span>Aklında Düşünceler Varsa, Prisold Bu Fikirleri Paylaşabilmen İçin Mükemmel Bir Platform</span>,
+    <span>Aklında Fikirler Varsa, Prisold Bu Fikirleri Paylaşabilmen İçin Mükemmel Bir Platform</span>,
     <span>Çünkü Bu Platform Tamamen Gizlilik Üzerine Kurulmuştur ve Açık Kaynak Kodludur</span>,
     <span>Açık Kaynak Kodlu Platformlar Kar Amacı Gütmezler ve Kodları İnsanlar Tarafından İncelenebildiği Güvenlidirler</span>,
     <span>
@@ -46,7 +46,7 @@ export default function Landing() {
       <Link href="https://github.com/Cugatay/highcool-backend"> Buradan </Link>
       Ulaşabilirsiniz
     </span>,
-    <span>Aklındaki Fikirleri İnsanlarla Güvenli Bir Şekilde Paylaşamya Bugün Başlayabilirsin</span>,
+    <span>Aklındaki Fikirleri İnsanlarla Güvenli Bir Şekilde Paylaşmaya Bugün Başlayabilirsin</span>,
     <span>Kayıt Ol ve Bir Prisolder Olarak Orta Dünyayı Kurtar! Unutma, Orta Dünyanın Kaderi Senin Ellerinde</span>,
   ];
 
