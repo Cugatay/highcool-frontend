@@ -57,7 +57,6 @@ export default function Landing() {
   }, []);
 
   const isMobile = useIsMobile();
-  console.log(isMobile);
 
   return (
     <div className={styles.container}>
@@ -73,9 +72,6 @@ export default function Landing() {
         showThumbs={false}
         interval={5000}
         swipeable
-        // onChange={(i) => {
-        //   console.log(i);
-        // }}
       >
         {
           data.map((text) => (

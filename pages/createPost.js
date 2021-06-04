@@ -43,7 +43,6 @@ export default function CreatePost() {
       window.location = `/home?queryPostId=${data.createPost.post_id}`;
     } catch (e) {
       setIsLoading(false);
-      console.log('err');
     }
   };
 
