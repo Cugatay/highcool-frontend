@@ -54,7 +54,7 @@ export default function LandingHeader({
           </Link>
         </div>
 
-        <a href="https://www.youtube.com/watch?v=B7nKzCRL_oo" target="_blank" rel="noreferrer">
+        <a href="/download" rel="noreferrer">
           <img src="/google-play-badge.png" alt="Google Play" className={styles.badge} />
         </a>
       </div>
