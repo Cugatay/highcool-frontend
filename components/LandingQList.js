@@ -15,6 +15,8 @@ export default function LandingQList({ questions }) {
   //   });
   // }, []);
 
+  const regex = / /g; // Note the 'g' flag, which matches all occurrences of the expression
+
   return (
     <div className={styles.sss}>
       {/* <h2>S.S.S (Sık Sorulan Sorular)</h2> */}
@@ -24,7 +26,7 @@ export default function LandingQList({ questions }) {
           <a
             onClick={() => setSelected(q)}
             className={clsx(styles.question, selected === q && styles.selected)}
-            href={`#${q.replaceAll(' ', '-')}`}
+            href={`#${q.replace(regex, '-')}`}
           >
             {q}
           </a>
