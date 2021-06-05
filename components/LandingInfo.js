@@ -6,7 +6,10 @@ export default function LandingInfo({
   title, info, hiddenInfo, github,
 }) {
   const [isShowing, setIsShowing] = useState(false);
-  const titleId = title.replaceAll(' ', '-');
+
+  const regex = / /g; // Note the 'g' flag, which matches all occurrences of the expression
+
+  const titleId = title.replace(regex, '-');
 
   return (
     <div id={titleId} className={styles.card}>
