@@ -91,7 +91,7 @@ export default function Verificate() {
         <h4>
           Sana özel bir e-posta aracılığıyla çok önemli
           bir kod gönderdik. Gizli dünyaların kapısını aralayacak bu kodu aşağıya girebilirsin.
-          Not: Spamlarını Kontrol Et Bro :)
+          <div style={{ color: 'white' }}>Not: Spamlarını Kontrol Et Bro :)</div>
           <span onClick={resendEmail} className={styles.resend}>Tekrar Gönder</span>
           <span onClick={exit} className={styles.exit}>Çıkış Yap</span>
         </h4>
