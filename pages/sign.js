@@ -24,8 +24,8 @@ const LOGIN_MUTATION = gql`
   }
 `;
 const REGISTER_MUTATION = gql`
-  mutation Register($username: String!, $email: String!, $password: String!) {
-    register(username: $username, email: $email, password: $password) {
+  mutation Register($username: String!, $password: String!) {
+    register(username: $username, password: $password) {
       token
       user {
         username
@@ -45,8 +45,8 @@ export default function Login() {
   const [isLoading, setIsLoading] = useState(false);
 
   const usernameOrEmail = useRef(null);
-  const email = useRef(null);
   const password = useRef(null);
+  const passwordRepeat = useRef(null);
 
   const token = Cookies.get('token');
 
@@ -58,12 +58,15 @@ export default function Login() {
 
   const toggleLogin = async () => {
     try {
+      if (isRegistering && passwordRepeat.current.value !== password.current.value) {
+        throw new Error('Şifreler eşleşmiyor, doğru yazdığınızdan emin olun');
+      }
+
       setIsLoading(true);
       const { data } = await ApolloClient.mutate({
         mutation: isRegistering ? REGISTER_MUTATION : LOGIN_MUTATION,
         variables: isRegistering ? {
           username: usernameOrEmail.current.value,
-          email: email.current.value,
           password: password.current.value,
         }
           : { usernameOrEmail: usernameOrEmail.current.value, password: password.current.value },
@@ -104,23 +107,6 @@ export default function Login() {
           className={styles.input}
           placeholder={isRegistering ? 'Kullanıcı Adı' : 'Kullanıcı Adı / E-posta'}
         />
-        <div className={clsx(styles.registerSection, !isRegistering && styles.noneSection)}>
-          {isRegistering
-          && (
-          <>
-            <Input
-              onKeyPress={(e) => {
-                if (e.key === 'Enter' && !!e.target.value) {
-                  toggleLogin();
-                }
-              }}
-              forwardRef={email}
-              className={styles.input}
-              placeholder="E-posta"
-            />
-          </>
-          )}
-        </div>
         <Input
           onKeyPress={(e) => {
             if (e.key === 'Enter' && !!e.target.value) {
@@ -134,12 +120,24 @@ export default function Login() {
         />
       </div>
 
-      {isRegistering
-      && (
-      <div className={styles.info}>
-        E-posta adresiniz yalnızca hesabınızı doğrulamak için kullanılır ve hiçbir yerde paylaşılmaz
+      <div className={clsx(styles.registerSection, !isRegistering && styles.noneSection)}>
+        {isRegistering
+          && (
+          <>
+            <Input
+              onKeyPress={(e) => {
+                if (e.key === 'Enter' && !!e.target.value) {
+                  toggleLogin();
+                }
+              }}
+              // forwardRef={password}
+              className={styles.input}
+              placeholder="Şifre Tekrar"
+              type="password"
+            />
+          </>
+          )}
       </div>
-      )}
 
       {formError
       && <p className={styles.error}>{errors[formError]}</p>}
