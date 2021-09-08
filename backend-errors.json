@@ -19,5 +19,6 @@
     "invite_not_found": "Böyle bir davetiye bulunmamakta",
     "not_authorised": "Hacker mısın karrrrdeşim?",
     "already_accepted": "Bu davetiyeyi zaten kabul ettiniz",
-    "email_is_not_valid": "E-posta geçerli değil"
+    "email_is_not_valid": "E-posta geçerli değil",
+    "passwords_do_not_match": "Şifreler eşleşmiyor, doğru yazdığınızdan emin olun"
 }

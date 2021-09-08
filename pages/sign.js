@@ -59,7 +59,8 @@ export default function Login() {
   const toggleLogin = async () => {
     try {
       if (isRegistering && passwordRepeat.current.value !== password.current.value) {
-        throw new Error('Şifreler eşleşmiyor, doğru yazdığınızdan emin olun');
+        setFormError('passwords_do_not_match');
+        return;
       }
 
       setIsLoading(true);
@@ -135,7 +136,7 @@ export default function Login() {
                   toggleLogin();
                 }
               }}
-              // forwardRef={password}
+              forwardRef={passwordRepeat}
               className={styles.input}
               placeholder="Şifre Tekrar"
               type="password"
