@@ -3,15 +3,15 @@ import React, { useState } from 'react';
 import styles from '../../styles/components/ui/Input.module.scss';
 
 export default function Input({
-  type, className, forwardRef, ...inputProps
+  type, className, forwardRef, hideEyeIcon, ...inputProps
 }) {
   const [isVisible, setIsVisible] = useState(type !== 'password');
 
   return (
     <div className={clsx(styles.input, className)}>
-      <input ref={forwardRef} type={isVisible ? 'text' : 'password'} {...inputProps} />
+      <input ref={forwardRef} type={isVisible && !hideEyeIcon ? 'text' : 'password'} {...inputProps} />
       {
-        type === 'password'
+        type === 'password' && !hideEyeIcon
       && (
       <button
         type="button"

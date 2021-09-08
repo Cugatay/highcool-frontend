@@ -105,8 +105,9 @@ export default function Login() {
           }}
           forwardRef={usernameOrEmail}
           className={styles.input}
-          placeholder={isRegistering ? 'Kullanıcı Adı' : 'Kullanıcı Adı / E-posta'}
+          placeholder="Kullanıcı Adı"
         />
+
         <Input
           onKeyPress={(e) => {
             if (e.key === 'Enter' && !!e.target.value) {
@@ -117,11 +118,15 @@ export default function Login() {
           className={styles.input}
           placeholder="Şifre"
           type="password"
+          hideEyeIcon={isRegistering}
         />
-      </div>
 
-      <div className={clsx(styles.registerSection, !isRegistering && styles.noneSection)}>
-        {isRegistering
+        <div className={clsx(
+          styles.registerSection,
+          !isRegistering && styles.noneSection,
+        )}
+        >
+          {isRegistering
           && (
           <>
             <Input
@@ -134,9 +139,12 @@ export default function Login() {
               className={styles.input}
               placeholder="Şifre Tekrar"
               type="password"
+              hideEyeIcon
             />
           </>
           )}
+        </div>
+
       </div>
 
       {formError
