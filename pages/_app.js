@@ -7,7 +7,7 @@ import UserContext from '../context/UserContext';
 import PageContext from '../context/PageContext';
 
 const client = new ApolloClient({
-  uri: `${process.env.NEXT_PUBLIC_PRODUCTION ? 'https://api.prisold.com/graphql' : 'http://localhost:5000/graphql'}`,
+  uri: `${process.env.NEXT_PUBLIC_PRODUCTION ? 'https://prisold.com/api/graphql' : 'http://localhost:5000/graphql'}`,
   // uri: 'http://192.168.1.25:5000/graphql',
   cache: new InMemoryCache(),
 });
